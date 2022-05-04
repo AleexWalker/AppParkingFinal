@@ -12,4 +12,19 @@
     <color name="dashboard_item_3">#2CC2EA</color>
     <color name="dashboard_item_4">#ffb300</color>
     <color name="dashboard_item_5">#66bb6a</color>
+
+    <!-- NIGHT COLORS -->
+    <color name="lightWhite_to_NightDark">#2A3665</color>
+    <color name="lightWhite_to_NightDarker">#CC232D55</color>
+    <color name="lightWhite_to_NightPrimaryText">#565B65</color>
+    <color name="lightDark_to_NightWhite">#FFFFFF</color>
+
+    <!-- CARD COLORS -->
+    <color name="cardNightMode">#232D55</color>
+    <color name="cardNightMode_Primary">#181F39</color>
+
+    <!-- TEXT COLORS -->
+    <color name="textDarker">#797F95</color>
+    <color name="textTitle">#FFFFFF</color>
+
 </resources>

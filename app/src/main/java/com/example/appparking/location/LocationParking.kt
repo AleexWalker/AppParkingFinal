@@ -1,4 +1,4 @@
-package com.example.appparking.carlocation
+package com.example.appparking.location
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -28,7 +28,6 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.flow.collect
 import java.util.ArrayList
 
 class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {

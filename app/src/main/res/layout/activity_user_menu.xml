@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.UserMenu">
+    tools:context=".ui.UserMenu"
+    android:background="@color/lightWhite_to_NightDarker">
 
     <View
         android:id="@+id/viewHeaderBackground"
@@ -44,10 +45,13 @@
         android:id="@+id/cardHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        app:cardBackgroundColor="@color/card_bvackground"
+        app:cardBackgroundColor="@color/card_background_darker"
         app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="@dimen/_4sdp"
+
         app:layout_constraintBottom_toBottomOf="@+id/viewHeaderBackground"
         app:layout_constraintTop_toBottomOf="@+id/viewHeaderBackground">
 
@@ -61,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Datos:"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -103,9 +107,10 @@
                 <TextView
                     android:id="@+id/textNombre"
                     android:hint="@string/sin_determinar"
+                    android:textColorHint="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primary_text"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_8ssp"
                     android:textAlignment="center"/>
 
@@ -140,7 +145,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="@string/sin_determinar"
-                    android:textColor="@color/primary_text"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_8ssp"
                     android:textAlignment="center"/>
 
@@ -176,7 +182,8 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:hint="@string/sin_determinar"
-                    android:textColor="@color/primary_text"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_8ssp"/>
 
             </LinearLayout>
@@ -192,7 +199,8 @@
         android:layout_marginTop="@dimen/_45sdp"
         android:overScrollMode="never"
         android:padding="@dimen/_16sdp"
-        android:scrollbars="none"
+        android:scrollbars="vertical"
+        android:scrollbarThumbVertical="@color/lightDark_to_NightWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewHeaderBackground">
 
@@ -204,23 +212,27 @@
             android:orientation="vertical">
 
             <include
-                android:id="@+id/primerItem"
+                android:id="@+id/itemLocationSave"
                 layout="@layout/item_1" />
 
             <include
-                android:id="@+id/segundoItem"
+                android:id="@+id/itemLocationLoad"
                 layout="@layout/item_2" />
 
             <include
-                android:id="@+id/tercerItem"
+                android:id="@+id/itemUserData"
                 layout="@layout/item_3" />
 
             <include
-                android:id="@+id/cuartoItem"
+                android:id="@+id/itemLocationParkings"
                 layout="@layout/item_4" />
 
             <include
-                android:id="@+id/quintoItem"
+                android:id="@+id/itemPay"
+                layout="@layout/item_5" />
+
+            <include
+                android:id="@+id/itemSwapParking"
                 layout="@layout/item_5" />
 
         </LinearLayout>

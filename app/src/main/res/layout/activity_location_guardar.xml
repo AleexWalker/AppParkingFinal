@@ -27,7 +27,7 @@
         map:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginHorizontal="@dimen/_40sdp"
 
-        android:layout_marginBottom="@dimen/_10sdp"/>
+        android:layout_marginBottom="@dimen/_40sdp"/>
 
     <include
         android:id="@+id/item_boton_add_maps_type"

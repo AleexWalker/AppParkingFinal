@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightWhite_to_NightDarker"
-    tools:context=".ui.UserMenu">
+    tools:context=".chronometer.Chronometer">
 
     <View
         android:id="@+id/viewHeaderBackground"
@@ -22,7 +21,7 @@
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginLeft="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_16sdp"
-        android:text="Ajustes"
+        android:text="@string/parking_app"
         android:textColor="@color/white"
         android:textSize="@dimen/_20ssp"
         android:textStyle="bold"
@@ -45,10 +44,13 @@
         android:id="@+id/cardHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        app:cardBackgroundColor="@color/card_bvackground"
+        app:cardBackgroundColor="@color/cardNightMode_Primary"
         app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="@dimen/_4sdp"
+
         app:layout_constraintBottom_toBottomOf="@+id/viewHeaderBackground"
         app:layout_constraintTop_toBottomOf="@+id/viewHeaderBackground">
 
@@ -62,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Datos:"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +93,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/cliente"/>
+                    android:src="@drawable/man"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -102,13 +104,14 @@
                     android:textSize="@dimen/_10ssp"/>
 
                 <TextView
-                    android:id="@+id/textoNombreAjustes"
+                    android:id="@+id/textNombre"
+                    android:hint="@string/sin_determinar"
+                    android:textColorHint="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:hint="@string/sin_determinar"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp"/>
+                    android:textSize="@dimen/_8ssp"
+                    android:textAlignment="center"/>
 
             </LinearLayout>
 
@@ -137,13 +140,14 @@
                     android:textSize="@dimen/_10ssp"/>
 
                 <TextView
-                    android:id="@+id/textoCiudadAjustes"
+                    android:id="@+id/textCiudad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
                     android:hint="@string/sin_determinar"
+                    android:textColorHint="@color/white"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp"/>
+                    android:textSize="@dimen/_8ssp"
+                    android:textAlignment="center"/>
 
             </LinearLayout>
 
@@ -172,11 +176,12 @@
                     android:textSize="@dimen/_10ssp"/>
 
                 <TextView
-                    android:id="@+id/textoMarcaAjustes"
+                    android:id="@+id/textMarca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:hint="@string/sin_determinar"
+                    android:textColorHint="@color/white"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8ssp"/>
 
@@ -186,66 +191,45 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_45sdp"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:padding="@dimen/_16sdp"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewHeaderBackground"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_height="wrap_content"
 
-        <LinearLayout
-            android:id="@+id/linearLayoutPrincipal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_16sdp"
-            android:layout_marginRight="@dimen/_16sdp"
-            android:clickable="true"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/cardHeader">
+        app:layout_constraintTop_toBottomOf="@+id/cardHeader"
+        android:layout_marginTop="@dimen/_16sdp">
 
-            <include
-                android:id="@+id/primerItemAjustes"
-                layout="@layout/item_ajustes_1" />
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/firstDigit"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_70sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_4sdp"
 
-            <include
-                android:id="@+id/segundoItemAjustes"
-                layout="@layout/item_ajustes_2" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
 
-            <include
-                android:id="@+id/tercerItemAjustes"
-                layout="@layout/item_ajustes_3" />
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_10sdp" >
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/botonAceptar"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:backgroundTint="@color/card_bvackground"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_5sdp"
-                app:strokeColor="@color/primary"
-                app:strokeWidth="@dimen/_1sdp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Guardar Datos"
-                    android:textAlignment="center"
-                    android:textColor="@color/letra_boton"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold" />
+        </com.google.android.material.card.MaterialCardView>
 
-            </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_70sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_4sdp"
 
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="@+id/firstDigit"
+            app:layout_constraintStart_toEndOf="@+id/firstDigit"
+            app:layout_constraintBottom_toBottomOf="@id/firstDigit"
 
-    </ScrollView>
+            android:layout_marginStart="@dimen/_8sdp" >
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,34 +1,33 @@
 package com.example.appparking.ui
 
 import android.content.ContentValues
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.cardview.widget.CardView
 import com.example.appparking.R
 import com.example.appparking.databinding.ActivityUserDataBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.item_ajustes_1.*
 import kotlinx.android.synthetic.main.item_ajustes_2.*
 import kotlinx.android.synthetic.main.item_ajustes_3.*
-import java.util.HashSet
+import kotlin.concurrent.thread
 
 class UserData : AppCompatActivity() {
 
     private lateinit var binding: ActivityUserDataBinding
     private lateinit var baseDatos: FirebaseFirestore
 
+    private lateinit var nombre: String
+    private lateinit var ciudad: String
+    private lateinit var marca: String
+
     private var hashData: HashMap<String, Any> = hashMapOf()
-    private var nombre = String()
-    private var ciudad = String()
-    private var marca = String()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,31 +36,57 @@ class UserData : AppCompatActivity() {
         baseDatos = Firebase.firestore
 
         cargarAutoCompleteTextViewProvincia()
+
         cargarAutoCompleteTextViewMarca()
-        cargarDatosUsuario()
+
+        loadData()
 
         binding.botonAceptar.setOnClickListener {
-            if (editTextNombre.text.isEmpty() || editTextCiudad.text.isEmpty() || editTextMarca.text.isEmpty()) {
-                Toast.makeText(this, "¡Has de rellenar todos los campos!", Toast.LENGTH_SHORT).show()
-            } else {
-                nombre = editTextNombre.text.toString()
-                ciudad = editTextCiudad.text.toString()
-                marca = editTextMarca.text.toString()
+            saveData()
+        }
+    }
 
-                hashData["CiudadPerfil"] = ciudad
-                hashData["MarcaPerfil"] = marca
-                hashData["NombrePerfil"] = nombre
+    private fun loadData() {
+        baseDatos = Firebase.firestore
 
-                baseDatos
-                    .collection("Usuarios")
-                    .document("Data")
-                    .update(hashData)
-                    .addOnSuccessListener { Log.w(ContentValues.TAG, "¡Successfully written!") }
-                    .addOnFailureListener { Log.w(ContentValues.TAG, "Failed to be written!") }
+        baseDatos
+            .collection("Usuarios")
+            .document("Data")
+            .get()
+            .addOnSuccessListener { result ->
+                nombre = result.getField<String>("Nombre").toString()
+                ciudad = result.getField<String>("Ciudad").toString()
+                marca = result.getField<String>("Marca").toString()
 
-                val volverMain = Intent(this, UserMenu::class.java)
-                startActivity(volverMain)
+                with(binding){
+                    textoNombreAjustes.text = nombre
+                    textoCiudadAjustes.text = ciudad
+                    textoMarcaAjustes.text = marca
+                }
             }
+    }
+
+    private fun saveData() {
+        if (editTextNombre.text.isEmpty() || editTextCiudad.text.isEmpty() || editTextMarca.text.isEmpty()) {
+            Toast.makeText(this, "¡Has de rellenar todos los campos!", Toast.LENGTH_SHORT).show()
+        } else {
+            nombre = editTextNombre.text.toString()
+            ciudad = editTextCiudad.text.toString()
+            marca = editTextMarca.text.toString()
+
+            hashData["Ciudad"] = ciudad
+            hashData["Marca"] = marca
+            hashData["Nombre"] = nombre
+
+            baseDatos
+                .collection("Usuarios")
+                .document("Data")
+                .update(hashData)
+                .addOnSuccessListener { Log.w(ContentValues.TAG, "¡Successfully written!") }
+                .addOnFailureListener { Log.w(ContentValues.TAG, "Failed to be written!") }
+
+            val volverMain = Intent(this, UserMenu::class.java)
+            startActivity(volverMain)
         }
     }
 
@@ -77,31 +102,6 @@ class UserData : AppCompatActivity() {
         val adapter = ArrayAdapter(this,
         android.R.layout.simple_dropdown_item_1line, provincias)
         editTextCiudad.setAdapter(adapter)
-    }
-
-    private fun cargarDatosUsuario() {
-        /**
-         * Parámetros de main_activity
-         * @param textNombreAjustes : TextView
-         * @param textCiudadAjustes : TextView
-         * @param textMarcaAjustes : TextView
-         */
-        baseDatos
-            .collection("Usuarios")
-            .document("Data")
-            .get()
-            .addOnSuccessListener { data ->
-                if (data != null) {
-                    ciudad = data.getString("CiudadPerfil").toString()
-                    marca = data.getString("MarcaPerfil").toString()
-                    nombre = data.getString("NombrePerfil").toString()
-                }
-                binding.textoCiudadAjustes.text = ciudad
-                binding.textoMarcaAjustes.text = marca
-                binding.textoNombreAjustes.text = nombre
-            }
-
-
     }
 }
 

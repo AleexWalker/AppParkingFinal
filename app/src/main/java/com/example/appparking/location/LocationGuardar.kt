@@ -1,4 +1,4 @@
-package com.example.appparking.carlocation
+package com.example.appparking.location
 
 import android.Manifest
 import android.content.ContentValues
@@ -56,8 +56,6 @@ class LocationGuardar : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
         super.onCreate(savedInstanceState)
         binding = ActivityLocationGuardarBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        //Firestore Database & Load Scanner
         baseDatos = Firebase.firestore
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -68,49 +66,29 @@ class LocationGuardar : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
 
         geocoder = Geocoder(applicationContext, Locale.getDefault())
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        with(binding){
+            itemBotonAddMapsType.imagenMapsType.setOnClickListener {
+                if (mMap.mapType == GoogleMap.MAP_TYPE_NORMAL)
+                    mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
+                else
+                    mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+            }
+            itemBotonAddMapsBack.imagenMapsBack.setOnClickListener {
+                startActivity(Intent(applicationContext, UserMenu::class.java))
+            }
+            guardarLocalizacion.cardGuardarLocalizacion.setOnClickListener {
+                saveLocation(Coche(latitud, longitud, getCurrentDate(), getCurrentTime()))
+                startActivity(Intent(applicationContext, UserMenu::class.java))
+            }
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        try {
-            val succes : Boolean = googleMap.setMapStyle(
-                MapStyleOptions.loadRawResourceStyle(
-                    this, R.raw.map_style_dark
-                ))
-            if (!succes) {
-                Log.e("MapsActivity", "Style pairsing failed")
-            }
-        } catch (e: Resources.NotFoundException) {
-            Log.e("MapsActivity", "Can't find map style. Error: ", e)
-        }
-
-        mMap.uiSettings.isZoomControlsEnabled = true
-        mMap.uiSettings.isMyLocationButtonEnabled = true
-        mMap.uiSettings.isIndoorLevelPickerEnabled = true
-        mMap.uiSettings.isMapToolbarEnabled = true
-
-        mMap.isTrafficEnabled = true
-
-        mMap.setOnMarkerDragListener(this)
-        mMap.setOnMyLocationButtonClickListener(this)
-
-        binding.itemBotonAddMapsType.imagenMapsType.setOnClickListener {
-            if (mMap.mapType == GoogleMap.MAP_TYPE_NORMAL)
-                mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
-            else
-                mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-        }
-
-        binding.itemBotonAddMapsBack.imagenMapsBack.setOnClickListener {
-            startActivity(Intent(this, UserMenu::class.java))
-        }
-
-        binding.guardarLocalizacion.cardGuardarLocalizacion.setOnClickListener {
-            saveLocation(Coche(latitud, longitud, getCurrentDate(), getCurrentTime()))
-            startActivity(Intent(this, UserMenu::class.java))
-        }
-
+        loadMapCharacteristics()
+        loadMapStyle(googleMap)
         setUpMap()
     }
 
@@ -165,6 +143,32 @@ class LocationGuardar : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
         }
     }
 
+    private fun loadMapCharacteristics() {
+        mMap.uiSettings.isZoomControlsEnabled = true
+        mMap.uiSettings.isMyLocationButtonEnabled = true
+        mMap.uiSettings.isIndoorLevelPickerEnabled = true
+        mMap.uiSettings.isMapToolbarEnabled = true
+        mMap.isTrafficEnabled = true
+
+        mMap.setOnMarkerDragListener(this)
+        mMap.setOnMyLocationButtonClickListener(this)
+    }
+
+    private fun loadMapStyle(googleMap: GoogleMap) {
+        try {
+            val succes: Boolean = googleMap.setMapStyle(
+                MapStyleOptions.loadRawResourceStyle(
+                    this, R.raw.map_style_retro
+                )
+            )
+            if (!succes) {
+                Log.e("MapsActivity", "Style pairsing failed")
+            }
+        } catch (e: Resources.NotFoundException) {
+            Log.e("MapsActivity", "Can't find map style. Error: ", e)
+        }
+    }
+
     private fun saveLocation(coche: Coche) {
         val listGeocoder: List<Address> = geocoder.getFromLocation(latitud, longitud, 1)
 
@@ -174,9 +178,8 @@ class LocationGuardar : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
         hashData["Hora"] = coche.hora
 
         hashData["Localidad"] = listGeocoder[0].locality
-        hashData["Localidad"] = listGeocoder[0].locality
         hashData["Numero"] = listGeocoder[0].featureName
-        hashData["Ciudad"] = listGeocoder[0].subAdminArea
+        hashData["CiudadCoche"] = listGeocoder[0].subAdminArea
         hashData["Comunidad"] = listGeocoder[0].adminArea
         hashData["Pais"] = listGeocoder[0].countryName
         hashData["Calle"] = listGeocoder[0].thoroughfare

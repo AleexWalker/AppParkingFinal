@@ -1,4 +1,4 @@
-package com.example.appparking.carlocation
+package com.example.appparking.location
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -9,9 +9,7 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.example.appparking.ui.UserMenu
 import com.example.appparking.R
 
@@ -25,9 +23,8 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
-import kotlinx.android.synthetic.main.activity_location_acceder.*
 
-class LocationAcceder : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMarkerClickListener {
+class LocationAcceder : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener, GoogleMap.OnMyLocationButtonClickListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var lastLocation: Location
@@ -38,6 +35,7 @@ class LocationAcceder : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyL
 
     private var latitud: Double = 0.0
     private var longitud: Double = 0.0
+    private var marca = String()
 
     companion object {
         private const val LOCATION_REQUEST_CODE = 1
@@ -56,32 +54,39 @@ class LocationAcceder : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyL
         mapFragment.getMapAsync(this)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        with(binding){
+            itemBotonAccederMapsType.imagenMapsType.setOnClickListener {
+                if (mMap.mapType == GoogleMap.MAP_TYPE_NORMAL)
+                    mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
+                else
+                    mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+            }
+            itemBotonAccederMapsBack.imagenMapsBack.setOnClickListener {
+                startActivity(Intent(applicationContext, UserMenu::class.java))
+            }
+        }
     }
 
     @SuppressLint("PotentialBehaviorOverride")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        loadMap(googleMap)
 
+        loadMapCharacteristics()
+        loadMapStyle(googleMap)
+        loadLocation()
+        setUpMap()
+    }
+
+    private fun loadMapCharacteristics() {
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isMyLocationButtonEnabled = true
         mMap.uiSettings.isIndoorLevelPickerEnabled = true
+        mMap.uiSettings.isMapToolbarEnabled = true
+        mMap.isTrafficEnabled = true
 
+        mMap.setOnMarkerDragListener(this)
         mMap.setOnMyLocationButtonClickListener(this)
-        mMap.setOnMarkerClickListener(this)
-
-        binding.itemBotonAccederMapsType.imagenMapsType.setOnClickListener {
-            if (mMap.mapType == GoogleMap.MAP_TYPE_NORMAL)
-                mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
-            else
-                mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-        }
-
-        binding.itemBotonAccederMapsBack.imagenMapsBack.setOnClickListener {
-            startActivity(Intent(this, UserMenu::class.java))
-        }
-
-        setUpMap()
     }
 
     override fun onMyLocationButtonClick(): Boolean {
@@ -115,18 +120,26 @@ class LocationAcceder : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyL
                 mMap
                     .animateCamera(CameraUpdateFactory
                         .newLatLngZoom(currentLatLong, 18f))
-
-                latitud = location.latitude
-                longitud = location.longitude
             }
         }
     }
 
-    private fun loadMap(googleMap: GoogleMap) {
+    private fun placeMarkerOnMap(title: String, latitud: Double, longitud: Double) {
+        val marker: Marker? = mMap.addMarker(MarkerOptions()
+            .title(title)
+            .flat(false)
+            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+            .position(LatLng(latitud, longitud))
+            .draggable(true)
+            .visible(true))
+        marker!!.showInfoWindow()
+    }
+
+    private fun loadMapStyle(googleMap: GoogleMap) {
         try {
             val succes: Boolean = googleMap.setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(
-                    this, R.raw.map_style_dark
+                    this, R.raw.map_style_retro
                 )
             )
             if (!succes) {
@@ -137,7 +150,29 @@ class LocationAcceder : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyL
         }
     }
 
+    private fun loadLocation() {
+        baseDatos
+            .collection("Usuarios")
+            .document("Data")
+            .get()
+            .addOnSuccessListener { result ->
+                latitud = result.getString("Latitud")!!.toDouble()
+                longitud = result.getString("Longitud")!!.toDouble()
+                marca = result.getString("Marca").toString()
+                placeMarkerOnMap(marca, latitud, longitud)
+            }
 
+    }
 
+    override fun onMarkerDrag(p0: Marker) {
+        return
+    }
 
+    override fun onMarkerDragEnd(p0: Marker) {
+        return
+    }
+
+    override fun onMarkerDragStart(p0: Marker) {
+        return
+    }
 }

@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_acceder_localizacion.xml" value="0.30117753623188404" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_chronometer.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_google_maps.xml" value="0.375" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_location_acceder.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_location_guardar.xml" value="0.33" />
@@ -11,14 +12,17 @@
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_parking.xml" value="0.30117753623188404" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_parking_location.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_user_data.xml" value="0.32587719298245615" />
-        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_user_menu.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_user_menu.xml" value="0.33" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_user_menu_exp.xml" value="0.33" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_dialog_chrono.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_toast_maps_add_1.xml" value="0.32587719298245615" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_toast_user_1.xml" value="0.17149122807017544" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_1.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_1_maps.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_2.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_2_maps.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_3.xml" value="0.30117753623188404" />
-        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_4.xml" value="0.1" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_4.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_5.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_ajustes_1.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_ajustes_2.xml" value="0.32587719298245615" />

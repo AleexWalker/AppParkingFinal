@@ -7,7 +7,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardGuardarLocalizacion"
         android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_height="@dimen/_25sdp"
         android:backgroundTint="@color/primary"
 
         app:cardCornerRadius="@dimen/_20sdp"

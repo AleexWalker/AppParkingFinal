@@ -10,16 +10,20 @@
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
         app:cardBackgroundColor="@color/dashboard_item_5"
-        app:cardCornerRadius="@dimen/_14sdp"
+        app:cardCornerRadius="@dimen/_30sdp"
+        app:cardElevation="@dimen/_5sdp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:layout_marginBottom="@dimen/_10sdp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/_8sdp"
-            android:src="@drawable/item_1"
+            android:src="@drawable/swap"
             android:tint="@color/white"/>
 
     </com.google.android.material.card.MaterialCardView>
@@ -29,16 +33,17 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_55sdp"
 
-        app:cardBackgroundColor="@color/card_bvackground"
+        app:cardBackgroundColor="@color/card_background_darker"
         app:cardCornerRadius="@dimen/_30sdp"
-        app:cardElevation="0dp"
+        app:cardElevation="@dimen/_4sdp"
         app:strokeColor="@color/dashboard_item_5"
         app:strokeWidth="@dimen/_1sdp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
-        android:layout_marginStart="@dimen/_16sdp">
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_10sdp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -54,9 +59,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_8sdp"
                 android:layout_marginRight="@dimen/_8sdp"
-                android:text="| Menu Ampliación 2 |"
+                android:text="SWAP PARKING"
                 android:textColor="@color/primary_text"
                 android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/montserrat_medium"
 
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
