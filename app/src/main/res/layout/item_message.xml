@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/card_background_darker">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/card_background_darker"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/profilePhotoMessages"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            app:cardCornerRadius="@dimen/_30sdp"
+
+            app:cardBackgroundColor="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:layout_marginVertical="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_11sdp">
+
+            <ImageView
+                android:id="@+id/profilePhoto"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+
+                app:srcCompat="@drawable/messages_1" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/nameMessager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alex Maer"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/textWhite90"
+            android:textSize="@dimen/_14ssp"
+
+            app:layout_constraintTop_toTopOf="@+id/profilePhotoMessages"
+            app:layout_constraintBottom_toBottomOf="@+id/profilePhotoMessages"
+            app:layout_constraintStart_toEndOf="@+id/profilePhotoMessages"
+
+            app:layout_constraintVertical_bias="0"
+            android:layout_marginStart="@dimen/_16sdp"/>
+
+        <TextView
+            android:id="@+id/lastMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alex Maer"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/textWhite25"
+            android:textSize="@dimen/_8ssp"
+
+            app:layout_constraintTop_toBottomOf="@+id/nameMessager"
+            app:layout_constraintBottom_toBottomOf="@+id/profilePhotoMessages"
+            app:layout_constraintStart_toEndOf="@+id/profilePhotoMessages"
+
+            android:layout_marginStart="@dimen/_16sdp"/>
+
+        <TextView
+            android:id="@+id/hourLastMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="11:05 PM"
+
+            app:layout_constraintTop_toTopOf="@+id/profilePhotoMessages"
+            app:layout_constraintBottom_toBottomOf="@+id/profilePhotoMessages"
+            app:layout_constraintEnd_toStartOf="@+id/newMessages"
+
+            android:layout_marginEnd="@dimen/_8sdp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/newMessages"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            app:cardCornerRadius="@dimen/_20sdp"
+            app:cardBackgroundColor="#ED3B3B"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profilePhotoMessages"
+            app:layout_constraintBottom_toBottomOf="@+id/profilePhotoMessages"
+
+            android:layout_marginEnd="@dimen/_8sdp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/countReadedMessages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_8ssp"
+                    android:textColor="@color/textWhite90"
+                    android:text="4"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
