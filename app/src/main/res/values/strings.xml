@@ -1,17 +1,48 @@
 <resources>
     <string name="app_name">AppParking</string>
-    <string name="more">more</string>
+
+    <!-- API KEYS -->
+    <string name="API_KEY">AIzaSyAcHUTXOAjM806HfMywO67zeA-xunpU82k</string>
+
+    <!-- MENU -->
+    <string name="MENU_TITLE">Parking App</string>
+
+    <string name="CARD_HEADER_CLIENT">Cliente</string>
+    <string name="CARD_HEADER_MORE">more</string>
+    <string name="CARD_HEADER_CITY">Ciudad</string>
+    <string name="CARD_HEADER_MODEL">Marca Coche</string>
+    <string name="CARD_HEADER_DATA">Datos:</string>
+
+    <string name="MENU_PROFILE">SEE PROFILE</string>
+    <string name="MENU_PROFILE_MODEL">SM-16HJYF</string>
+    <string name="MENU_PROFILE_MARCA">Samsung</string>
+
+    <string name="MENU_LOCATION_SAVE">MAPS SAVE LOCATION</string>
+    <string name="MENU_LOCATION_SAVE_HINT">TODAY: 12:30</string>
+    <string name="MENU_LOCATION_LOAD">MAPS LAST LOCATION</string>
+    <string name="MENU_LOCATION_LOAD_HINT">STREET, Nº</string>
+
+    <string name="MENU_REWARDS">YOUR REWARDS</string>
+    <string name="MENU_PARKINGS">PARKINGS</string>
+    <string name="MENU_PARKINGS_HINT">City</string>
+    <string name="MENU_PAY_BLUE_ZONE">PAY BLUE ZONE</string>
+    <string name="MENU_SWAP_PARKING">SWAP PARKING</string>
+    <string name="MENU_CONTACT">CONTACT</string>
+    <string name="MENU_MESSAGES">MESSAGES</string>
+
+    <string name="MENU_TOAST_LOCATION_LOAD">¡Guarde primero su localización!</string>
+    <string name="APP_NAME_BOTTOM">APPARCA</string>
+
     <string name="impacted">Impacted</string>
-    <string name="Following" />
     <string name="following">Following</string>
-    <string name="marca_coche">Marca Coche</string>
-    <string name="castell_n">Castellón</string>
-    <string name="ciudad">Ciudad</string>
     <string name="title_activity_google_maps">GoogleMaps</string>
-    <string name="parking_app">Parking App</string>
     <string name="guardar_ubicaci_n_actual">Guardar Ubicación Actual</string>
     <string name="title_activity_acceder_localizacion">AccederLocalizacion</string>
     <string name="sin_determinar">Sin Determinar</string>
+
+    <string name="title_activity_parking">Parking</string>
+    <string name="title_activity_prueba_parking">PruebaParking</string>
+    <string name="title_activity_parking_location">ParkingLocation</string>
 
     <string-array name="provincias">
         <item>Alava</item>
@@ -77,9 +108,5 @@
         ; <item>Toyota</item> ; <item>Volkswagen</item> ;
         <item>Volvo</item>
     </string-array>
-    <string name="title_activity_parking">Parking</string>
-    <string name="title_activity_prueba_parking">PruebaParking</string>
-    <string name="API_KEY">AIzaSyAcHUTXOAjM806HfMywO67zeA-xunpU82k</string>
-    <string name="title_activity_parking_location">ParkingLocation</string>
 </resources>
 

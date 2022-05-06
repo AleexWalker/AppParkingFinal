@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_125sdp"
         android:background="@color/primary"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textTitle"
@@ -27,7 +26,7 @@
         android:textSize="@dimen/_20ssp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/boton_search"
@@ -36,10 +35,10 @@
         android:layout_marginEnd="@dimen/_16sdp"
         android:layout_marginRight="@dimen/_16sdp"
         android:src="@drawable/ic_search"
+        android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textTitle"
-        android:tint="@color/white"/>
+        app:layout_constraintTop_toTopOf="@+id/textTitle" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardHeader"
@@ -47,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        app:cardBackgroundColor="@color/card_bvackground"
+        app:cardBackgroundColor="@color/cardNightMode_Primary"
         app:cardCornerRadius="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="@+id/viewHeaderBackground"
         app:layout_constraintTop_toBottomOf="@+id/viewHeaderBackground">
@@ -62,20 +61,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Datos:"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/more"
+                android:text="@string/CARD_HEADER_MORE"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/layoutClients"
@@ -91,7 +90,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/cliente"/>
+                    android:src="@drawable/man" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -99,16 +98,17 @@
                     android:layout_marginTop="@dimen/_4sdp"
                     android:text="Cliente"
                     android:textColor="@color/secondary_text"
-                    android:textSize="@dimen/_10ssp"/>
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
                     android:id="@+id/textoNombreAjustes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
                     android:hint="@string/sin_determinar"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp"/>
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
 
@@ -126,24 +126,26 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/mapa"/>
+                    android:src="@drawable/mapa" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:text="@string/ciudad"
+                    android:text="@string/CARD_HEADER_CITY"
                     android:textColor="@color/secondary_text"
-                    android:textSize="@dimen/_10ssp"/>
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
                     android:id="@+id/textoCiudadAjustes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
                     android:hint="@string/sin_determinar"
+                    android:textAlignment="center"
+
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp"/>
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
 
@@ -161,24 +163,26 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/coche"/>
+                    android:src="@drawable/coche" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:text="@string/marca_coche"
+                    android:text="@string/CARD_HEADER_MODEL"
                     android:textColor="@color/secondary_text"
-                    android:textSize="@dimen/_10ssp"/>
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
                     android:id="@+id/textoMarcaAjustes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
                     android:hint="@string/sin_determinar"
+                    android:textAlignment="center"
+
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp"/>
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
 
@@ -187,19 +191,235 @@
     </com.google.android.material.card.MaterialCardView>
 
     <ScrollView
+        android:id="@+id/scrollData"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_65sdp"
         android:clipToPadding="false"
         android:overScrollMode="never"
-        android:padding="@dimen/_16sdp"
         android:scrollbars="none"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewHeaderBackground"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDataName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+
+                android:layout_marginTop="@dimen/_8sdp"
+
+                android:layout_marginBottom="@dimen/_11sdp"
+                app:cardBackgroundColor="@color/cardNightMode_Primary"
+
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:cardElevation="@dimen/_5sdp"
+                app:layout_constraintBottom_toTopOf="@id/cardDataCityModel"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginHorizontal="@dimen/_16sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/imageDataName"
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_45sdp"
+
+                        android:layout_marginStart="@dimen/_8sdp"
+                        app:cardBackgroundColor="@color/secondary_Card"
+                        app:cardCornerRadius="@dimen/_14sdp"
+
+                        app:cardElevation="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_gravity="center"
+
+                            android:src="@drawable/man" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textField"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+
+                        android:backgroundTint="@color/white"
+                        android:hint="Name"
+                        android:textColorHint="@color/white"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageDataName"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/textDataNombre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:inputType="textShortMessage"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:textSize="@dimen/_10ssp"
+
+                            android:backgroundTint="@android:color/transparent" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDataCityModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardCornerRadius="@dimen/_15sdp"
+
+                app:cardElevation="@dimen/_5sdp"
+                app:layout_constraintBottom_toTopOf="@+id/cardAccept"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardDataName"
+
+                android:layout_marginBottom="@dimen/_11sdp"
+                android:layout_marginHorizontal="@dimen/_16sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/imageDataCity"
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_45sdp"
+
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        app:cardBackgroundColor="@color/secondary_Card"
+
+                        app:cardCornerRadius="@dimen/_11sdp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:layout_constraintBottom_toTopOf="@+id/imageDataModel"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center"
+
+                            android:src="@drawable/mapa" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <Spinner
+                        android:id="@+id/spinnerCities"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/imageDataCity"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:backgroundTint="@color/white"
+
+                        app:layout_constraintStart_toEndOf="@+id/imageDataCity"
+                        app:layout_constraintTop_toTopOf="@id/imageDataCity" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/imageDataModel"
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_45sdp"
+
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        app:cardBackgroundColor="@color/secondary_Card"
+
+                        app:cardCornerRadius="@dimen/_11sdp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        app:layout_constraintStart_toStartOf="@id/imageDataCity"
+                        app:layout_constraintTop_toBottomOf="@+id/imageDataCity">
+
+                        <ImageView
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_gravity="center"
+
+                            android:src="@drawable/coche" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <Spinner
+                        android:id="@+id/spinnerModel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:backgroundTint="@color/white"
+
+                        app:layout_constraintStart_toEndOf="@+id/imageDataModel"
+                        app:layout_constraintTop_toTopOf="@id/imageDataModel" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardAccept"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+
+                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardCornerRadius="@dimen/_20sdp"
+
+                app:cardElevation="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardDataCityModel"
+
+                android:layout_marginBottom="@dimen/_11sdp"
+                android:layout_marginHorizontal="@dimen/_16sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/arrow_down" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--<LinearLayout
             android:id="@+id/linearLayoutPrincipal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -244,8 +464,45 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-        </LinearLayout>
+        </LinearLayout>-->
 
     </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_15sdp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/imageApp"
+            android:layout_width="@dimen/_5sdp"
+            android:layout_height="@dimen/_5sdp"
+            android:src="@drawable/copyright"
+
+            app:layout_constraintTop_toTopOf="@+id/textAppName"
+            app:layout_constraintBottom_toBottomOf="@id/textAppName"
+            app:layout_constraintStart_toEndOf="@+id/textAppName"
+            app:layout_constraintVertical_bias="0"
+
+            android:layout_marginStart="@dimen/_1sdp"/>
+
+        <TextView
+            android:id="@+id/textAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="APPARCA"
+            android:textColor="@color/lightDark_to_NightWhite_1"
+            android:fontFamily="@font/montserrat_medium"
+            android:textStyle="bold"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.49" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

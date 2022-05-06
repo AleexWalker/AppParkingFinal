@@ -1,6 +1,6 @@
-package com.example.appparking.network
+package com.example.appparking.places.network
 
-import com.example.nearmekotlindemo.models.googlePlaceModel.GoogleResponseModel
+import com.example.appparking.places.models.GooglePlaceModel.GoogleResponseModel
 import com.example.nearmekotlindemo.models.googlePlaceModel.directionPlaceModel.DirectionResponseModel
 import retrofit2.Response
 import retrofit2.http.GET

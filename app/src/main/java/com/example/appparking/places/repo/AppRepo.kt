@@ -1,7 +1,7 @@
-package com.example.appparking.repo
+package com.example.appparking.places.repo
 
 import android.util.Log
-import com.example.nearmekotlindemo.network.RetrofitClient
+import com.example.appparking.places.network.RetrofitClient
 import com.example.nearmekotlindemo.utility.State
 
 import kotlinx.coroutines.Dispatchers

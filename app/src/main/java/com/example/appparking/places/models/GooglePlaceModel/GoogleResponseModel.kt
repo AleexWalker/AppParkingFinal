@@ -1,8 +1,6 @@
-package com.example.nearmekotlindemo.models.googlePlaceModel
+package com.example.appparking.places.models.GooglePlaceModel
 
-import com.example.appparking.models.GooglePlaceModel.GooglePlaceModel
 import com.squareup.moshi.Json
-
 
 data class GoogleResponseModel(
     @field:Json(name = "results")

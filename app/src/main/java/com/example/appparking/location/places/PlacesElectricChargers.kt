@@ -1,25 +1,31 @@
-package com.example.appparking.location
+package com.example.appparking.location.places
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.location.Location
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+
 import com.example.appparking.R
+import com.example.appparking.databinding.ActivityPlacesElectricChargersBinding
+import com.example.appparking.location.LocationGuardar
+import com.example.appparking.location.LocationParking
 import com.example.appparking.places.adapter.InfoWindowAdapter
-import com.example.appparking.databinding.ActivityLocationParkingBinding
 import com.example.appparking.places.models.GooglePlaceModel.GooglePlaceModel
-import com.example.appparking.viewModels.LocationViewModel
 import com.example.appparking.places.models.GooglePlaceModel.GoogleResponseModel
+import com.example.appparking.ui.UserMenu
+import com.example.appparking.viewModels.LocationViewModel
 import com.example.nearmekotlindemo.utility.State
+
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -28,12 +34,13 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.google.android.material.snackbar.Snackbar
+
 import java.util.ArrayList
 
-class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+class PlacesElectricChargers : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityLocationParkingBinding
+    private lateinit var binding: ActivityPlacesElectricChargersBinding
     private lateinit var googlePlaceList: ArrayList<GooglePlaceModel>
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var radius = 2500
@@ -51,7 +58,7 @@ class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLocationParkingBinding.inflate(layoutInflater)
+        binding = ActivityPlacesElectricChargersBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         googlePlaceList = ArrayList()
@@ -62,6 +69,17 @@ class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
         mapFragment.getMapAsync(this)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        with(binding) {
+            itemBotonAddMapsType.imagenMapsType.setOnClickListener {
+                if (mMap.mapType == GoogleMap.MAP_TYPE_NORMAL)
+                    mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
+                else
+                    mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+            }
+            itemBotonAddMapsBack.imagenMapsBack.setOnClickListener {
+                startActivity(Intent(applicationContext, UserMenu::class.java))
+            }
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -71,33 +89,6 @@ class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
         enableLocation()
         setupMap()
         getNearbyPlace(nearbyLocation)
-    }
-
-    private fun getCurrentLocation() {
-        val fusedLocationProviderClient =
-            LocationServices.getFusedLocationProviderClient(this)
-
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            //isLocationPermissionOk = false
-            return
-        }
-        fusedLocationProviderClient.lastLocation.addOnSuccessListener {
-
-            currentLocation = it
-            infoWindowAdapter = null
-            infoWindowAdapter = InfoWindowAdapter(currentLocation, this)
-            mMap?.setInfoWindowAdapter(infoWindowAdapter)
-            //moveCameraToLocation(currentLocation)
-        }.addOnFailureListener {
-            Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun moveCameraToLocation(location: Location) {
@@ -116,7 +107,7 @@ class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
             .title("Current Location")
             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
 
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 16f))
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 20f))
 
     }
 
@@ -135,7 +126,7 @@ class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
                 currentLocation = location
                 val currentLatLong = LatLng(location.latitude, location.longitude)
 
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 16f))
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 18f))
             }
         }
     }
@@ -150,16 +141,16 @@ class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
                 when (it) {
                     is State.Loading -> {
                         if (it.flag == true) {
-                            Toast.makeText(this@LocationParking, "", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@PlacesElectricChargers, "", Toast.LENGTH_SHORT).show()
                         }
                     }
 
                     is State.Success -> {
-                        Toast.makeText(this@LocationParking, "", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@PlacesElectricChargers, "", Toast.LENGTH_SHORT).show()
                         val googleResponseModel : GoogleResponseModel = it.data as GoogleResponseModel
 
                         if (googleResponseModel.googlePlaceModelList != null &&
-                                googleResponseModel.googlePlaceModelList.isNotEmpty()
+                            googleResponseModel.googlePlaceModelList.isNotEmpty()
                         ) {
                             googlePlaceList.clear()
                             mMap.clear()
@@ -176,9 +167,9 @@ class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
                     }
 
                     is State.Failed -> {
-                        Toast.makeText(this@LocationParking, "", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@PlacesElectricChargers, "", Toast.LENGTH_SHORT).show()
                         Snackbar.make(binding.root, it.error,
-                        Snackbar.LENGTH_SHORT
+                            Snackbar.LENGTH_SHORT
                         ).show()
                     }
                 }

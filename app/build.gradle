@@ -79,6 +79,9 @@ dependencies {
     def lifecycle_ver = "2.2.0-alpha01"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_ver"
 
+    // Notifications
+    implementation("androidx.core:core-ktx:1.7.0")
+
     testImplementation 'junit:junit:'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

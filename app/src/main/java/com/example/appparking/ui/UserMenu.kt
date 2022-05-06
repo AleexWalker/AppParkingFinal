@@ -1,30 +1,39 @@
 package com.example.appparking.ui
 
 import android.annotation.SuppressLint
+import android.app.*
+import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 
 import com.example.appparking.Pruebas
 import com.example.appparking.R
-import com.example.appparking.chronometer.Chronometer
+import com.example.appparking.databinding.ActivityUserMenuBinding
+import com.example.appparking.functions.swap.SwapParking
+import com.example.appparking.functions.pay.Pay
 import com.example.appparking.location.LocationAcceder
 import com.example.appparking.location.LocationGuardar
 import com.example.appparking.location.LocationParking
-import com.example.appparking.databinding.ActivityUserMenuExpBinding
+import com.example.appparking.location.places.PlacesElectricChargers
+import com.example.appparking.location.places.PlacesGasStation
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.custom_dialog_chrono.*
 
-import kotlinx.android.synthetic.main.activity_user_menu.*
-import kotlinx.android.synthetic.main.activity_user_menu_exp.view.*
+import kotlinx.android.synthetic.main.custom_dialog_chrono.view.*
 import kotlinx.android.synthetic.main.custom_toast_maps_add_1.*
 import kotlinx.android.synthetic.main.item_1.*
 import kotlinx.android.synthetic.main.item_2.*
@@ -38,19 +47,26 @@ import kotlin.collections.HashMap
 
 class UserMenu : AppCompatActivity() {
 
-    private lateinit var binding: ActivityUserMenuExpBinding
+    private lateinit var binding: ActivityUserMenuBinding
     private lateinit var baseDatos: FirebaseFirestore
     private lateinit var nombre: String
     private lateinit var ciudad: String
     private lateinit var marca: String
 
+    private lateinit var notificationManager: NotificationManager
+    private lateinit var notificationChannel: NotificationChannel
+    private lateinit var builder: Notification.Builder
+    private val channelId = "1234"
+    private val description = "Test notification"
+
     private var hashUserData: HashMap<String, Any> = hashMapOf()
     private var latitud: Double = 0.0
     private var longitud: Double = 0.0
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityUserMenuExpBinding.inflate(layoutInflater)
+        binding = ActivityUserMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         baseDatos = Firebase.firestore
@@ -67,17 +83,13 @@ class UserMenu : AppCompatActivity() {
             /**
              * Lanzamos la activity_user_data para que nuestro cliente realice los cambios que considere necesarios
              */
-            cardHeader.setOnClickListener {
-                startActivity(Intent(applicationContext, UserData::class.java))
-            }
+            cardHeader.setOnClickListener { startActivity(Intent(applicationContext, UserData::class.java)) ; transition() }
 
             /**
              * En cuanto el usuario interactue con dicho layout lo mandamos a la clase de LocationGuardar
              * @param layoutPrimero : Parámetro que hace referencia al Layout item_1 insertado en el activity_main.xml
              */
-            itemLocationSave.setOnClickListener {
-                startActivity(Intent(applicationContext, LocationGuardar::class.java))
-            }
+            itemLocationSave.setOnClickListener { startActivity(Intent(applicationContext, LocationGuardar::class.java)) ; transition() }
 
             /**
              * En cuanto el usuario interactue con dicho layout lo mandamos a la clase de LocationGuardar
@@ -86,52 +98,152 @@ class UserMenu : AppCompatActivity() {
             itemLocationLoad.setOnClickListener {
                 if (latitud == 0.0 && longitud == 0.0)
                     toastPersonalizadoUserMenu1()
-                else
+                else {
                     startActivity(Intent(applicationContext, LocationAcceder::class.java))
+                    transition()
+                }
             }
 
-            itemUserData.setOnClickListener {
-                startActivity(Intent(applicationContext, UserData::class.java))
-            }
+            itemUserData.setOnClickListener { startActivity(Intent(applicationContext, UserData::class.java)) ; transition() }
 
             /**
              * En cuanto el usuario interactue con dicho layout lo mandamos a la clase de Parking
              * @param layoutTercero : Parámetro que hace referencia al Layout item_3 insertado en el activity_main.xml
              */
-            itemLocationParkings.setOnClickListener {
-                startActivity(Intent(applicationContext, LocationParking::class.java))
-            }
+            itemLocationParking.setOnClickListener { startActivity(Intent(applicationContext, LocationParking::class.java)) ; transition() }
 
-            itemCronometro.setOnClickListener {
-                val dialogView = LayoutInflater.from(applicationContext).inflate(R.layout.custom_dialog_chrono, null)
-                val builderDialogView = android.app.AlertDialog.Builder(applicationContext)
-                    .setView(dialogView)
-                val alertDialog = builderDialogView.show()
-                alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            }
+            itemElectrica.setOnClickListener { startActivity(Intent(this@UserMenu, PlacesElectricChargers::class.java)) ; transition() }
 
-            itemRewards.setOnClickListener {
-                startActivity(Intent(applicationContext, Pruebas::class.java))
-            }
+            itemGasolinera.setOnClickListener { startActivity(Intent(this@UserMenu, PlacesGasStation::class.java)) ; transition() }
 
-            itemPay.setOnClickListener {}
+            itemCronometro.setOnClickListener { showAlertView() }
 
-            itemSwapParking.setOnClickListener {}
+            itemRewards.setOnClickListener { startActivity(Intent(applicationContext, Pruebas::class.java)) ; transition() }
 
-            itemContact.setOnClickListener {}
+            itemEstadistica.setOnClickListener { Toast.makeText(this@UserMenu, "Estadísticas de Rewards", Toast.LENGTH_LONG).show() }
+
+            itemPay.setOnClickListener { startActivity(Intent(this@UserMenu, Pay::class.java)) ; transition() }
+
+            itemSwapParking.setOnClickListener { startActivity(Intent(this@UserMenu, SwapParking::class.java)) ; transition() }
+
+            itemContact.setOnClickListener { showNotification() }
         }
     }
 
-    private fun toastPersonalizadoUserMenu1() {
-        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_user_1, constraintToastMaps1)
-        Toast(this).apply {
-            duration = Toast.LENGTH_SHORT
-            setGravity(Gravity.TOP, 0, 20)
-            view = layoutToast
-        }.show()    }
+    private fun transition() {
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out)
+    }
 
-    private fun getCurrentTime(): String {
+    private fun showAlertView() {
+        val dialogView =
+            LayoutInflater.from(this@UserMenu).inflate(R.layout.custom_dialog_chrono, null)
+        val builderDialogView = AlertDialog
+            .Builder(this@UserMenu)
+            .setView(dialogView)
+        val alertDialog = builderDialogView.show()
+        alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        with(dialogView) {
+            alertTimePicker.currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+            alertTimePicker.setIs24HourView(true)
+
+            cardAlertCancel.setOnClickListener {
+                alertDialog.dismiss()
+            }
+
+            cardAlertSet.setOnClickListener {
+                val countDownTimer = object : CountDownTimer(
+                    getTimeNotification(
+                        getCurrentTime()
+                            .substring(0, 2),
+                        getCurrentTime()
+                            .substring(3),
+                        alertTimePicker.hour.toString(),
+                        alertTimePicker.minute.toString()
+                    ).toLong() * 1000, 1000
+                ) {
+                    override fun onTick(p0: Long) {}
+                    override fun onFinish() {
+                        showNotification()
+                    }
+                }
+                toastPersonalizadoUserMenu2()
+                countDownTimer.start()
+                alertDialog.dismiss()
+            }
+        }
+    }
+
+    @SuppressLint("RemoteViewLayout")
+    private fun showNotification() {
+        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        val intent = Intent(this, LocationAcceder::class.java)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationChannel = NotificationChannel(channelId, description, NotificationManager.IMPORTANCE_HIGH)
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.RED
+            notificationChannel.enableVibration(true)
+            notificationManager.createNotificationChannel(notificationChannel)
+
+            builder = Notification.Builder(this, channelId)
+                .setContentTitle("Zona Azul")
+                .setContentText("Zona azul finalizada")
+                .setSmallIcon(R.drawable.iconoapp2)
+                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.iconoapp2))
+                .setContentIntent(pendingIntent)
+        } else {
+            builder = Notification.Builder(this)
+                .setContentTitle("Code")
+                .setContentText("Notification")
+                .setSmallIcon(R.drawable.iconoapp2)
+                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.iconoapp2))
+                .setContentIntent(pendingIntent)
+        }
+        notificationManager.notify(1234, builder.build())
+    }
+
+    private fun getCurrentDate(): String {
         return SimpleDateFormat("EEEE, HH:mm", Locale.getDefault()).format(Date())
+    }
+    private fun getCurrentTime(): String {
+        return SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
+    }
+
+    private fun getTimeNotification(currentHour: String, currentMinute: String, userHour: String, userMinute: String): Int {
+        val difference = arrayListOf<Int>()
+        val hourDifference = userHour.toInt() - currentHour.toInt()
+        var minuteDifference = userMinute.toInt() - currentMinute.toInt()
+        when {
+            minuteDifference < 0 -> {
+                if (hourDifference == 1) {
+                    minuteDifference += 60
+                    difference.add(0)
+                    difference.add(minuteDifference)
+                } else {
+                    difference.add(hourDifference)
+                    difference.add(minuteDifference)
+                }
+            }
+            minuteDifference == 0 -> {
+                difference.add(hourDifference)
+                difference.add(minuteDifference)
+            }
+            else -> {
+                difference.add(hourDifference)
+                difference.add(minuteDifference)
+            }
+        }
+        return when (difference[0]) {
+            0 -> {
+                difference[1] * 60
+            }
+            else -> {
+                ((difference[0] * 60) + difference[1]) * 60
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -141,21 +253,52 @@ class UserMenu : AppCompatActivity() {
             .document("Data")
             .get()
             .addOnSuccessListener { result ->
-                latitud = result.getString("Latitud")!!.toDouble()
-                longitud = result.getString("Longitud")!!.toDouble()
-                nombre = result.getString("Nombre").toString()
-                ciudad = result.getString("Ciudad").toString()
-                marca = result.getString("Marca").toString()
+                if (result != null) {
+                    result.getString("Latitud")?.toDouble().also {
+                        if (it != null) {
+                            latitud = it
+                        }
+                    }
+                    result.getString("Longitud")?.toDouble().also {
+                        if (it != null) {
+                            longitud = it
+                        }
+                    }
 
-                with(binding){
-                    textNombre.text = nombre
-                    textCiudad.text = ciudad
-                    textMarca.text = marca
+                    nombre = result.getString("Nombre").toString()
+                    ciudad = result.getString("Ciudad").toString()
+                    marca = result.getString("Marca").toString()
 
-                    textLocationSaveDay.text = result.getString("Hora").toString().uppercase()
-                    textLocationLoadStreet.text = "${result.getString("Calle")}, ${result.getString("Numero")}"
-                    textLocationParkingData.text = "${result.getString("Localidad")}"
+                    with(binding){
+                        textNombre.text = nombre
+                        textCiudad.text = ciudad
+                        textMarca.text = marca
+
+                        textLocationSaveDay.text = result.getString("Hora").toString().uppercase()
+                        textLocationLoadStreet.text = "${result.getString("Calle")}, ${result.getString("Numero")}"
+                        textLocationParkingData.text = "${result.getString("Localidad")}"
+
+                        marcaItemProfile.text = result.getString("Marca")
+                        modelItemProfile.text = result.getString("Modelo")
+                    }
                 }
             }
     }
+
+    private fun toastPersonalizadoUserMenu1() {
+        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_user_1, constraintToastMaps1)
+        Toast(this).apply {
+            duration = Toast.LENGTH_LONG
+            setGravity(Gravity.BOTTOM, 0, 40)
+            view = layoutToast
+        }.show()
+    }
+
+    private fun toastPersonalizadoUserMenu2() {
+        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_user_2, constraintToastMaps1)
+        Toast(this).apply {
+            duration = Toast.LENGTH_LONG
+            setGravity(Gravity.BOTTOM, 0, 40)
+            view = layoutToast
+        }.show()    }
 }

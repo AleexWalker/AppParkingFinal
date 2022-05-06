@@ -1,6 +1,5 @@
-package com.example.nearmekotlindemo.network
+package com.example.appparking.places.network
 
-import com.example.appparking.network.RetrofitApi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 

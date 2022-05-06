@@ -1,4 +1,4 @@
-package com.example.appparking.models.GooglePlaceModel
+package com.example.appparking.places.models.GooglePlaceModel
 
 import com.example.nearmekotlindemo.models.googlePlaceModel.GeometryModel
 import com.squareup.moshi.Json

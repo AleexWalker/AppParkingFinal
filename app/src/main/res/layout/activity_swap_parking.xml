@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".functions.swap.SwapParking"
+    android:background="@color/card_background_darker">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+
+        android:text="Messages"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/textWhite90"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/boton_search"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+
+        android:layout_marginEnd="@dimen/_16sdp"
+
+        android:src="@drawable/setting"
+
+        app:layout_constraintBottom_toBottomOf="@+id/textTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textTitle"
+        app:tint="@color/textWhite90"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardMessages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:strokeWidth="@dimen/_1sdp"
+        app:strokeColor="@color/textWhite75"
+        app:cardBackgroundColor="@color/card_background_darker"
+        app:cardCornerRadius="@dimen/_10sdp"
+
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/searchMessages"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="0dp"
+
+                android:src="@drawable/search"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/autoCompleteMessages"
+
+                android:layout_marginStart="@dimen/_5sdp"
+                app:tint="@color/textWhite90"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteMessages"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Search your message"
+                android:textColor="@color/textWhite75"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColorHint="@color/textWhite90"
+                android:backgroundTint="@android:color/transparent"
+                android:elevation="@dimen/_10sdp"
+
+                app:layout_constraintStart_toEndOf="@+id/searchMessages"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/cardMessages"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+
+        android:background="?android:attr/selectableItemBackground"
+        tools:listitem="@layout/item_message"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

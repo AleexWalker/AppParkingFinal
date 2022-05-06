@@ -18,7 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppParking">
         <activity
-            android:name=".chronometer.Chronometer"
+            android:name=".location.places.PlacesGasStation"
+            android:exported="false" />
+        <activity
+            android:name=".location.places.PlacesElectricChargers"
+            android:exported="false" />
+        <activity
+            android:name=".functions.pay.Pay"
+            android:exported="false" />
+        <activity
+            android:name=".functions.swap.SwapParking"
             android:exported="false" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="@dimen/_10sdp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:layout_marginVertical="@dimen/_16sdp"
+        android:layout_marginHorizontal="@dimen/_35sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="@drawable/card_background">
+
+            <TextView
+                android:id="@+id/textBankPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="APP PARCA BANK"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/imageChipPay"
+
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_10sdp" />
+
+            <ImageView
+                android:id="@+id/imageMasterCardPay"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/mastercard"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                android:layout_marginEnd="@dimen/_8sdp" />
+
+            <ImageView
+                android:id="@+id/imageNfcPay"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/nfc"
+
+                app:layout_constraintTop_toTopOf="@+id/imageChipPay"
+                app:layout_constraintBottom_toBottomOf="@+id/imageChipPay"
+                app:layout_constraintStart_toStartOf="@+id/textBankPay"
+                app:layout_constraintEnd_toStartOf="@+id/imageChipPay"
+
+                android:layout_marginVertical="@dimen/_5sdp"/>
+
+            <ImageView
+                android:id="@+id/imageChipPay"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/chip"
+
+                app:layout_constraintTop_toBottomOf="@+id/textBankPay"
+                app:layout_constraintStart_toEndOf="@+id/imageNfcPay"
+                app:layout_constraintBottom_toTopOf="@+id/textNumberPay"
+
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_16sdp"/>
+
+            <TextView
+                android:id="@+id/textNumberPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="1234   5678   9101   1121"
+                android:textStyle="bold"
+                android:textSize="@dimen/_18ssp"
+                android:textColor="@color/white"
+                android:maxLines="1"
+
+                app:layout_constraintTop_toBottomOf="@+id/imageChipPay"
+                app:layout_constraintStart_toStartOf="@+id/textBankPay"
+                app:layout_constraintEnd_toEndOf="@+id/imageMasterCardPay"
+                android:layout_marginTop="@dimen/_5sdp"
+
+                app:layout_constraintHorizontal_bias="0" />
+
+            <TextView
+                android:id="@+id/textNamePay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="NAME SURNAME SURNAME"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toBottomOf="@+id/textNumberPay"
+                app:layout_constraintStart_toStartOf="@+id/textBankPay"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/textCaducidadPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="03/28"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="@+id/textNamePay"
+                app:layout_constraintStart_toEndOf="@+id/textNamePay"
+                app:layout_constraintBottom_toBottomOf="@+id/textNamePay"
+                app:layout_constraintEnd_toEndOf="@+id/textNumberPay"
+
+                app:layout_constraintHorizontal_bias="1"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.appparking.adapter
+package com.example.appparking.places.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,7 +11,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.maps.android.SphericalUtil
 import kotlin.math.roundToInt
-import kotlinx.android.synthetic.main.activity_location_parking.*
 
 class InfoWindowAdapter(private val location: Location, context: Context) :
     GoogleMap.InfoWindowAdapter {

@@ -8,6 +8,7 @@ import android.content.res.Resources
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -184,6 +185,10 @@ class LocationGuardar : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
         hashData["Pais"] = listGeocoder[0].countryName
         hashData["Calle"] = listGeocoder[0].thoroughfare
         hashData["Codigo Postal"] = listGeocoder[0].postalCode
+
+        hashData["Marca"] = Build.MANUFACTURER.replaceFirstChar { it.toUpperCase() }
+        hashData["Dispositivo"] = Build.DEVICE.replaceFirstChar { it.toUpperCase() }
+        hashData["Modelo"] = Build.MODEL
 
         baseDatos
             .collection("Usuarios")

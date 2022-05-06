@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="@string/MENU_TOAST_LOCATION_LOAD"
+                android:text="Notificación de crónometro puesta correctamente"
                 android:fontFamily="@font/montserrat_medium"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"

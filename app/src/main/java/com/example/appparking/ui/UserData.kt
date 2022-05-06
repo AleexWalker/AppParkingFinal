@@ -13,10 +13,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_user_data.*
+import kotlinx.android.synthetic.main.activity_user_menu.*
 import kotlinx.android.synthetic.main.item_ajustes_1.*
 import kotlinx.android.synthetic.main.item_ajustes_2.*
 import kotlinx.android.synthetic.main.item_ajustes_3.*
-import kotlin.concurrent.thread
 
 class UserData : AppCompatActivity() {
 
@@ -41,7 +42,7 @@ class UserData : AppCompatActivity() {
 
         loadData()
 
-        binding.botonAceptar.setOnClickListener {
+        binding.cardAccept.setOnClickListener {
             saveData()
         }
     }
@@ -67,12 +68,14 @@ class UserData : AppCompatActivity() {
     }
 
     private fun saveData() {
-        if (editTextNombre.text.isEmpty() || editTextCiudad.text.isEmpty() || editTextMarca.text.isEmpty()) {
+        if (textDataNombre.text!!.isEmpty()) {
             Toast.makeText(this, "¡Has de rellenar todos los campos!", Toast.LENGTH_SHORT).show()
         } else {
-            nombre = editTextNombre.text.toString()
-            ciudad = editTextCiudad.text.toString()
-            marca = editTextMarca.text.toString()
+            with(binding){
+                nombre = textDataNombre.text.toString()
+                ciudad = spinnerCities.selectedItem.toString()
+                marca = spinnerModel.selectedItem.toString()
+            }
 
             hashData["Ciudad"] = ciudad
             hashData["Marca"] = marca
@@ -90,18 +93,24 @@ class UserData : AppCompatActivity() {
         }
     }
 
-    private fun cargarAutoCompleteTextViewMarca() {
-        val marcas = resources.getStringArray(R.array.marcascoche)
-        val adapter = ArrayAdapter(this,
-            android.R.layout.simple_dropdown_item_1line, marcas)
-        editTextMarca.setAdapter(adapter)
+    private fun cargarAutoCompleteTextViewProvincia() {
+        val spinnerArrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, resources.getStringArray(R.array.provincias))
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        with(binding){
+            spinnerCities.adapter = spinnerArrayAdapter
+            spinnerCities.setSelection(0)
+        }
     }
 
-    private fun cargarAutoCompleteTextViewProvincia() {
-        val provincias = resources.getStringArray(R.array.provincias)
-        val adapter = ArrayAdapter(this,
-        android.R.layout.simple_dropdown_item_1line, provincias)
-        editTextCiudad.setAdapter(adapter)
+    private fun cargarAutoCompleteTextViewMarca() {
+        val spinnerArrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, resources.getStringArray(R.array.marcascoche))
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        with(binding){
+            spinnerModel.adapter = spinnerArrayAdapter
+            spinnerModel.setSelection(0)
+        }
     }
 }
 
