@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -81,19 +82,28 @@ class UserMenu : AppCompatActivity() {
 
         with(binding) {
             /**
-             * Lanzamos la activity_user_data para que nuestro cliente realice los cambios que considere necesarios
+             * Si el usuario selecciona este ItemMenu será llevado a UserData para que realice los cambios que considere necesarios
+             * @param nombre: Nombre recogido desde Firebase el cual podrá ser modificado por el usuario
+             * @param ciudad: Ciudad recogida desde Firebase (mediante el uso de la clase Geocoder junto con la latitud y longitud aportadas) el cual podrá ser modificado por el usuario.
+             * @param modelo: Modelo de vehículo del usuario recogido desde Firebase el cual podrá ser modificado por el usuario.
+             * Estos 3 parámetros conformarán momentáneamente el perfil privado de cada Usuario el cual al iniciar la APP se identificará mediante un usuario y una contraseña.
              */
             cardHeader.setOnClickListener { startActivity(Intent(applicationContext, UserData::class.java)) ; transition() }
 
             /**
-             * En cuanto el usuario interactue con dicho layout lo mandamos a la clase de LocationGuardar
-             * @param layoutPrimero : Parámetro que hace referencia al Layout item_1 insertado en el activity_main.xml
+             * Cuando el usuario seleccione este ItemMenu será llevado automáticamente a LocationGuardar que consiste en un Maps Activity.
+             * En dicha Activity el usuario podrá guardar la localización en tiempo real de su vehículo.
+             * Incluso podrá mover el marker de la localización por si la ubicación mediante maps no es exacta del todo
              */
             itemLocationSave.setOnClickListener { startActivity(Intent(applicationContext, LocationGuardar::class.java)) ; transition() }
 
             /**
-             * En cuanto el usuario interactue con dicho layout lo mandamos a la clase de LocationGuardar
-             * @param layoutPrimero : Parámetro que hace referencia al Layout item_1 insertado en el activity_main.xml
+             * Cuando el usuario seleccione este ItemMenu será llevado automáticamente a LocationGuardar que consiste en un Maps Activity.
+             * En dicha Activity el usuario podrá observar la ubicación de su vehículo.
+             * De la misma manera se podrá hacer OnMarkerClick() para mostrarle al usuario la ruta exacta y más óptima (según Google Maps) hacia su vehículo.
+             * Los siguientes parámetros se recogerán desde Firebase para ubicar el vehículo.
+             * @param latitud
+             * @param longitud
              */
             itemLocationLoad.setOnClickListener {
                 if (latitud == 0.0 && longitud == 0.0)
@@ -104,29 +114,49 @@ class UserMenu : AppCompatActivity() {
                 }
             }
 
+            /**
+             * Si el usuario selecciona este ItemMenu será llevado a UserData para que realice los cambios que considere necesarios
+             * @param nombre: Nombre recogido desde Firebase el cual podrá ser modificado por el usuario
+             * @param ciudad: Ciudad recogida desde Firebase (mediante el uso de la clase Geocoder junto con la latitud y longitud aportadas) el cual podrá ser modificado por el usuario.
+             * @param modelo: Modelo de vehículo del usuario recogido desde Firebase el cual podrá ser modificado por el usuario.
+             * Estos 3 parámetros conformarán momentáneamente el perfil privado de cada Usuario el cual al iniciar la APP se identificará mediante un usuario y una contraseña.
+             */
             itemUserData.setOnClickListener { startActivity(Intent(applicationContext, UserData::class.java)) ; transition() }
 
             /**
-             * En cuanto el usuario interactue con dicho layout lo mandamos a la clase de Parking
-             * @param layoutTercero : Parámetro que hace referencia al Layout item_3 insertado en el activity_main.xml
+             * Cuando el usuario seleccione este Itemmenu será llevado automáticamente a LocationParking que consiste en un Maps Activity.
+             * En dicha Activity se abrirá en un Fragment Google Maps con los parkings más cercanos marcados en Maps.
              */
             itemLocationParking.setOnClickListener { startActivity(Intent(applicationContext, LocationParking::class.java)) ; transition() }
 
+            /**
+             * Cuando el usuario seleccione este Itemmenu será llevado automáticamente a PlacesElectricChargers que consiste en un Maps Activity.
+             * De nuevo este Activity consistirá en un Maps Fragment en el cual estrán marcados los cargadores eléctricos de vehículos cercanos.
+             */
             itemElectrica.setOnClickListener { startActivity(Intent(this@UserMenu, PlacesElectricChargers::class.java)) ; transition() }
 
+            /**
+             * Cuando el usuario seleccione este Itemmenu será llevado automáticamente a PlacesGasStation que consiste en un Maps Activity.
+             * De nuevo este Activity consistirá en un Maps Fragment en el cual estrán marcadas las gasolineras cercanas.
+             */
             itemGasolinera.setOnClickListener { startActivity(Intent(this@UserMenu, PlacesGasStation::class.java)) ; transition() }
 
+            /**
+             * Cuando el usuario seleccione este ItemMenu se despliegará automáticamente un AlertDialog con un widget de TimePicker.
+             * Con esto, el usuario seleccionará hasta que hora tiene la Zona Azul disponible y posteriormente comenzará una cuenta atrás en segundo plano.
+             * 5 minutos antes de acabar la cuenta atrás se mandrá una notificación de que la Zona Azul estará a punto de terminar.
+             */
             itemCronometro.setOnClickListener { showAlertView() }
 
             itemRewards.setOnClickListener { startActivity(Intent(applicationContext, Pruebas::class.java)) ; transition() }
 
-            itemEstadistica.setOnClickListener { Toast.makeText(this@UserMenu, "Estadísticas de Rewards", Toast.LENGTH_LONG).show() }
+            itemEstadistica.setOnClickListener { showNotification() }
 
             itemPay.setOnClickListener { startActivity(Intent(this@UserMenu, Pay::class.java)) ; transition() }
 
             itemSwapParking.setOnClickListener { startActivity(Intent(this@UserMenu, SwapParking::class.java)) ; transition() }
 
-            itemContact.setOnClickListener { showNotification() }
+            itemContact.setOnClickListener { val intent = Intent(Intent.ACTION_DIAL) ; intent.data = Uri.parse(("tel:012345678")) ; startActivity(intent)}
         }
     }
 
@@ -134,6 +164,9 @@ class UserMenu : AppCompatActivity() {
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out)
     }
 
+    /**
+     * AlertDialog mencionado anteriormente en Item Cronómetro
+     */
     private fun showAlertView() {
         val dialogView =
             LayoutInflater.from(this@UserMenu).inflate(R.layout.custom_dialog_chrono, null)
@@ -174,6 +207,9 @@ class UserMenu : AppCompatActivity() {
         }
     }
 
+    /**
+     * Notificación que se mostrará cuando el contador de la Zona Azul se termine.
+     */
     @SuppressLint("RemoteViewLayout")
     private fun showNotification() {
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -212,6 +248,9 @@ class UserMenu : AppCompatActivity() {
         return SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
     }
 
+    /**
+     * Función hecha para calcular el tiempo que debe tardar en mandarse la notificación de la cuenta atrás iniciada desde ItemCronómetro.
+     */
     private fun getTimeNotification(currentHour: String, currentMinute: String, userHour: String, userMinute: String): Int {
         val difference = arrayListOf<Int>()
         val hourDifference = userHour.toInt() - currentHour.toInt()
@@ -246,6 +285,9 @@ class UserMenu : AppCompatActivity() {
         }
     }
 
+    /**
+     * Función para cargar y posteriormente mostrar todos los datos de un Usuario desde Firebase.
+     */
     @SuppressLint("SetTextI18n")
     private fun loadUserData() {
         baseDatos
