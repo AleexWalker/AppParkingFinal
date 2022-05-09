@@ -346,6 +346,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         android:backgroundTint="@color/white"
 
+                        android:scrollbarThumbVertical="@dimen/_4sdp"
+
                         app:layout_constraintStart_toEndOf="@+id/imageDataCity"
                         app:layout_constraintTop_toTopOf="@id/imageDataCity" />
 

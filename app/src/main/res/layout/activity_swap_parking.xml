@@ -83,6 +83,7 @@
                 android:textColorHint="@color/textWhite90"
                 android:backgroundTint="@android:color/transparent"
                 android:elevation="@dimen/_10sdp"
+                android:inputType="textShortMessage"
 
                 app:layout_constraintStart_toEndOf="@+id/searchMessages"
                 app:layout_constraintTop_toTopOf="parent"

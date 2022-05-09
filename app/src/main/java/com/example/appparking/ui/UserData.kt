@@ -1,23 +1,23 @@
 package com.example.appparking.ui
 
+import androidx.appcompat.app.AppCompatActivity
+
 import android.content.ContentValues
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
+
 import com.example.appparking.R
 import com.example.appparking.databinding.ActivityUserDataBinding
+
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
+
 import kotlinx.android.synthetic.main.activity_user_data.*
-import kotlinx.android.synthetic.main.activity_user_menu.*
-import kotlinx.android.synthetic.main.item_ajustes_1.*
-import kotlinx.android.synthetic.main.item_ajustes_2.*
-import kotlinx.android.synthetic.main.item_ajustes_3.*
 
 class UserData : AppCompatActivity() {
 
@@ -94,8 +94,7 @@ class UserData : AppCompatActivity() {
     }
 
     private fun cargarAutoCompleteTextViewProvincia() {
-        val spinnerArrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, resources.getStringArray(R.array.provincias))
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val spinnerArrayAdapter = ArrayAdapter<String>(this, R.layout.spinner_item, resources.getStringArray(R.array.provincias))
 
         with(binding){
             spinnerCities.adapter = spinnerArrayAdapter
@@ -104,8 +103,7 @@ class UserData : AppCompatActivity() {
     }
 
     private fun cargarAutoCompleteTextViewMarca() {
-        val spinnerArrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, resources.getStringArray(R.array.marcascoche))
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val spinnerArrayAdapter = ArrayAdapter<String>(this, R.layout.spinner_item, resources.getStringArray(R.array.marcascoche))
 
         with(binding){
             spinnerModel.adapter = spinnerArrayAdapter

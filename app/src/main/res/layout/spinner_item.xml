@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/textSpinnerItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="@dimen/_14ssp"
+    android:fontFamily="@font/montserrat_medium"
+    android:text="Castellón"
+    android:textAlignment="center"
+    android:textColor="@color/textWhite90"
+    android:background="@color/cardNightMode_Primary"
+
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+
+    android:paddingVertical="@dimen/_15sdp">
+</TextView>

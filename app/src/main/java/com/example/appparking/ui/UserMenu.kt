@@ -320,7 +320,7 @@ class UserMenu : AppCompatActivity() {
                         textLocationLoadStreet.text = "${result.getString("Calle")}, ${result.getString("Numero")}"
                         textLocationParkingData.text = "${result.getString("Localidad")}"
 
-                        marcaItemProfile.text = result.getString("Marca")
+                        marcaItemProfile.text = result.getString("MarcaTelefono")
                         modelItemProfile.text = result.getString("Modelo")
                     }
                 }

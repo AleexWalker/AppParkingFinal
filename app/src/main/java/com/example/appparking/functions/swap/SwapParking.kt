@@ -1,12 +1,15 @@
 package com.example.appparking.functions.swap
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
+
 import com.example.appparking.R
 import com.example.appparking.databinding.ActivitySwapParkingBinding
+
 import kotlin.random.Random
 
 class SwapParking : AppCompatActivity() {
@@ -52,7 +55,7 @@ class SwapParking : AppCompatActivity() {
         }
 
         val adaptador = SwapAdapter(itemMensajes){ Log.e("AAAA", "Pulsado") }
-        val adaptadorAutoComplete = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, chat)
+        val adaptadorAutoComplete = ArrayAdapter(this, R.layout.spinner_item, chat)
 
         with(binding){
             recyclerMessages.adapter = adaptador

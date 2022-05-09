@@ -8,11 +8,13 @@ import android.graphics.Canvas
 import android.location.Location
 import android.os.Bundle
 import android.widget.Toast
+
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+
 import com.example.appparking.R
 import com.example.appparking.places.adapter.InfoWindowAdapter
 import com.example.appparking.databinding.ActivityLocationParkingBinding
@@ -20,6 +22,7 @@ import com.example.appparking.places.models.GooglePlaceModel.GooglePlaceModel
 import com.example.appparking.viewModels.LocationViewModel
 import com.example.appparking.places.models.GooglePlaceModel.GoogleResponseModel
 import com.example.nearmekotlindemo.utility.State
+
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -28,6 +31,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.google.android.material.snackbar.Snackbar
+
 import java.util.ArrayList
 
 class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {

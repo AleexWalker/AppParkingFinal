@@ -186,7 +186,7 @@ class LocationGuardar : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
         hashData["Calle"] = listGeocoder[0].thoroughfare
         hashData["Codigo Postal"] = listGeocoder[0].postalCode
 
-        hashData["Marca"] = Build.MANUFACTURER.replaceFirstChar { it.toUpperCase() }
+        hashData["MarcaTelefono"] = Build.MANUFACTURER.replaceFirstChar { it.toUpperCase() }
         hashData["Dispositivo"] = Build.DEVICE.replaceFirstChar { it.toUpperCase() }
         hashData["Modelo"] = Build.MODEL
 
