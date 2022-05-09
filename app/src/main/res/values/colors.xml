@@ -18,7 +18,7 @@
 
     <!-- NIGHT COLORS -->
     <color name="lightWhite_to_NightDark">#FFFFFF</color>
-    <color name="lightWhite_to_NightDarker">#FFFFFF</color>
+    <color name="lightWhite_to_NightDarker">#CFCFCF</color>
     <color name="lightWhite_to_NightPrimaryText">#FFFFFF</color>
     <color name="lightDark_to_NightWhite">#CC232D55</color>
     <color name="lightDark_to_NightWhite_1">#232D55</color>
@@ -27,12 +27,16 @@
     <color name="cardNightMode">#FFFFFF</color>
     <color name="cardNightMode_Primary">#232D55</color>
     <color name="secondary_Card">#CC1D2545</color>
+    <color name="cardano_item">#555abe</color>
+    <color name="cardano_item_green">#4caf50</color>
+    <color name="cardano_item_red">#f44336</color>
 
     <!-- TEXT COLORS -->
     <color name="textWhite90">#E6FFFFFF</color>
     <color name="textWhite75">#BFFFFFFF</color>
     <color name="textWhite50">#80FFFFFF</color>
     <color name="textWhite25">#40FFFFFF</color>
+    <color name="textWhite10">#1AFFFFFF</color>
     <color name="textDarker">#B8B8B8</color>
     <color name="textTitle">#333333</color>
 

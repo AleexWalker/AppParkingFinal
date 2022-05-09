@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import android.os.Bundle
-import android.util.Log
+
 import android.widget.ArrayAdapter
+import android.widget.Toast
+
+import androidx.core.content.ContextCompat
 
 import com.example.appparking.R
 import com.example.appparking.databinding.ActivitySwapParkingBinding
@@ -21,10 +24,12 @@ class SwapParking : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySwapParkingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.card_background_darker)
+
 
         val itemMensajes = ArrayList<SwapCard>()
 
-        for (i in 0..15){
+        for (i in 0..15) {
             if (i < 5) {
                 itemMensajes.add(
                     SwapCard(
@@ -38,8 +43,7 @@ class SwapParking : AppCompatActivity() {
                     )
                 )
                 chat.add(itemMensajes[i].name)
-            }
-            else {
+            } else {
                 itemMensajes.add(
                     SwapCard(
                         R.drawable.messages_1,
@@ -54,12 +58,15 @@ class SwapParking : AppCompatActivity() {
             }
         }
 
-        val adaptador = SwapAdapter(itemMensajes){ Log.e("AAAA", "Pulsado") }
+        val adaptador = SwapAdapter(itemMensajes) {
+            Toast.makeText(this, "Chat con ${it.name}", Toast.LENGTH_SHORT).show()
+        }
         val adaptadorAutoComplete = ArrayAdapter(this, R.layout.spinner_item, chat)
 
-        with(binding){
+        with(binding) {
             recyclerMessages.adapter = adaptador
-            recyclerMessages.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+            recyclerMessages.layoutManager =
+                LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
             autoCompleteMessages.setAdapter(adaptadorAutoComplete)
         }
     }

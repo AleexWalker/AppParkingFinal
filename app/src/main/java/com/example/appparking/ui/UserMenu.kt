@@ -22,6 +22,7 @@ import com.example.appparking.R
 import com.example.appparking.databinding.ActivityUserMenuBinding
 import com.example.appparking.functions.swap.SwapParking
 import com.example.appparking.functions.pay.Pay
+import com.example.appparking.functions.rewards.Rewards
 import com.example.appparking.location.LocationAcceder
 import com.example.appparking.location.LocationGuardar
 import com.example.appparking.location.LocationParking
@@ -148,7 +149,7 @@ class UserMenu : AppCompatActivity() {
              */
             itemCronometro.setOnClickListener { showAlertView() }
 
-            itemRewards.setOnClickListener { startActivity(Intent(applicationContext, Pruebas::class.java)) ; transition() }
+            itemRewards.setOnClickListener { startActivity(Intent(applicationContext, Rewards::class.java)) ; transition() }
 
             itemEstadistica.setOnClickListener { showNotification() }
 
@@ -157,6 +158,8 @@ class UserMenu : AppCompatActivity() {
             itemSwapParking.setOnClickListener { startActivity(Intent(this@UserMenu, SwapParking::class.java)) ; transition() }
 
             itemContact.setOnClickListener { val intent = Intent(Intent.ACTION_DIAL) ; intent.data = Uri.parse(("tel:012345678")) ; startActivity(intent)}
+
+            botonSettings.setOnClickListener { startActivity(Intent(this@UserMenu, UserSettings::class.java)) ; transition() }
         }
     }
 
@@ -226,9 +229,9 @@ class UserMenu : AppCompatActivity() {
 
             builder = Notification.Builder(this, channelId)
                 .setContentTitle("Zona Azul")
-                .setContentText("Zona azul finalizada")
-                .setSmallIcon(R.drawable.iconoapp2)
-                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.iconoapp2))
+                .setContentText("Zona azul finaliza proximamente")
+                .setSmallIcon(R.drawable.icon_app)
+                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.chronometer))
                 .setContentIntent(pendingIntent)
         } else {
             builder = Notification.Builder(this)

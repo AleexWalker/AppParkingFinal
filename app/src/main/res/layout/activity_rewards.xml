@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".functions.swap.SwapParking"
-    android:background="@color/card_background_darker">
+    android:background="@color/card_background_darker"
+    tools:context=".functions.rewards.Rewards">
 
     <TextView
         android:id="@+id/textTitle"
@@ -14,7 +14,7 @@
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_16sdp"
 
-        android:text="Messages"
+        android:text="Rewards"
         android:fontFamily="@font/montserrat_medium"
         android:textColor="@color/textWhite90"
         android:textSize="@dimen/_20ssp"
@@ -68,22 +68,24 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/autoCompleteMessages"
+                app:layout_constraintEnd_toStartOf="@+id/autoCompleteRewards"
 
                 android:layout_marginStart="@dimen/_5sdp"
                 app:tint="@color/textWhite90"/>
 
             <AutoCompleteTextView
-                android:id="@+id/autoCompleteMessages"
+                android:id="@+id/autoCompleteRewards"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Search your message"
+
+                android:hint="Search any coin/transaction"
                 android:textColor="@color/textWhite75"
                 android:fontFamily="@font/montserrat_medium"
                 android:textColorHint="@color/textWhite90"
                 android:backgroundTint="@android:color/transparent"
+
                 android:elevation="@dimen/_10sdp"
-                android:inputType="textShortMessage"
+                android:inputType="number"
                 android:textSize="@dimen/_10ssp"
 
                 app:layout_constraintStart_toEndOf="@+id/searchMessages"
@@ -99,11 +101,11 @@
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerMessages"
+        android:id="@+id/recyclerRewards"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scrollbarThumbVertical="@color/textWhite90"
         android:scrollbars="vertical"
+        android:scrollbarThumbVertical="@color/white"
 
         app:layout_constraintTop_toBottomOf="@+id/cardMessages"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +116,6 @@
         android:layout_marginTop="@dimen/_16sdp"
 
         android:background="?android:attr/selectableItemBackground"
-        tools:listitem="@layout/item_message"/>
+        tools:listitem="@layout/item_rewards"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

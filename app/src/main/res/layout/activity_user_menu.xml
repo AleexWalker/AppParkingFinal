@@ -1,48 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.UserMenu"
-    android:background="@color/lightWhite_to_NightDarker">
+    android:background="@color/lightWhite_to_NightDarker"
+    tools:context=".ui.UserMenu">
 
     <View
         android:id="@+id/viewHeaderBackground"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_125sdp"
         android:background="@color/primary"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_16sdp"
-        android:text="@string/app_name"
+
+        android:text="@string/APP_NAME_BOTTOM"
         android:textColor="@color/textWhite90"
         android:textSize="@dimen/_20ssp"
         android:textStyle="bold"
+        android:fontFamily="@font/montserrat_light"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/boton_search"
+        android:id="@+id/boton_settings"
         android:layout_width="@dimen/_26sdp"
         android:layout_height="@dimen/_26sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
-        android:src="@drawable/ic_search"
+
+        android:src="@drawable/setting"
+        android:tint="@color/white"
+
         app:layout_constraintBottom_toBottomOf="@+id/textTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textTitle"
-        android:tint="@color/white"/>
+
+        android:layout_marginEnd="@dimen/_16sdp"
+        app:tint="@color/textWhite90"/>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        app:strokeColor="@color/textWhite10"
+        app:strokeWidth="@dimen/_1sdp"
 
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
@@ -193,16 +203,16 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
         android:clipToPadding="false"
         android:overScrollMode="never"
-        android:scrollbars="vertical"
+        android:paddingTop="@dimen/_16sdp"
+
         android:scrollbarThumbVertical="@color/lightDark_to_NightWhite"
+        android:scrollbars="vertical"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewHeaderBackground"
-
-        android:layout_marginTop="@dimen/_10sdp"
-        android:paddingTop="@dimen/_16sdp">
+        app:layout_constraintTop_toBottomOf="@+id/viewHeaderBackground">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -215,17 +225,17 @@
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_80sdp"
 
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
                 app:cardBackgroundColor="@color/cardNightMode_Primary"
+
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
-
-                app:layout_constraintStart_toEndOf="@+id/itemLocationSave"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
 
                 app:layout_constraintHorizontal_bias="1"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_16sdp">
+                app:layout_constraintStart_toEndOf="@+id/itemLocationSave"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -236,61 +246,61 @@
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
 
+                        android:layout_marginStart="@dimen/_5sdp"
+
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:src="@drawable/man"
 
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
 
-                        android:textSize="@dimen/_10ssp"
+                        android:layout_marginEnd="@dimen/_8sdp"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textStyle="bold|italic"
+                        android:gravity="center"
                         android:text="@string/MENU_PROFILE"
                         android:textColor="@color/textWhite75"
-                        android:gravity="center"
+                        android:textSize="@dimen/_10ssp"
 
-                        app:layout_constraintTop_toTopOf="@+id/imageItemProfile"
-                        app:layout_constraintStart_toEndOf="@+id/imageItemProfile"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textStyle="bold|italic"
                         app:layout_constraintBottom_toBottomOf="@+id/imageItemProfile"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageItemProfile"
 
-                        android:layout_marginEnd="@dimen/_8sdp" />
+                        app:layout_constraintTop_toTopOf="@+id/imageItemProfile" />
 
                     <TextView
                         android:id="@+id/marcaItemProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textColor="@color/textWhite75"
                         android:text="@string/MENU_PROFILE_MARCA"
+                        android:textColor="@color/textWhite75"
                         android:textSize="@dimen/_8sdp"
 
-                        app:layout_constraintTop_toBottomOf="@+id/imageItemProfile"
-                        app:layout_constraintStart_toStartOf="@+id/imageItemProfile"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.1"
+                        app:layout_constraintStart_toStartOf="@+id/imageItemProfile"
 
-                        app:layout_constraintHorizontal_bias="0.1" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageItemProfile" />
 
                     <TextView
                         android:id="@+id/modelItemProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textColor="@color/textWhite75"
                         android:text="@string/MENU_PROFILE_MODEL"
+                        android:textColor="@color/textWhite75"
                         android:textSize="@dimen/_8sdp"
 
-                        app:layout_constraintTop_toTopOf="@+id/marcaItemProfile"
                         app:layout_constraintBottom_toBottomOf="@+id/marcaItemProfile"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/marcaItemProfile"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toTopOf="@+id/marcaItemProfile" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -378,9 +388,9 @@
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_5sdp"
 
-                app:layout_constraintStart_toStartOf="@id/itemLocationSave"
                 app:layout_constraintBottom_toBottomOf="@+id/itemUserData"
-                app:layout_constraintEnd_toEndOf="@id/itemLocationSave">
+                app:layout_constraintEnd_toEndOf="@id/itemLocationSave"
+                app:layout_constraintStart_toStartOf="@id/itemLocationSave">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -391,53 +401,53 @@
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
 
-                        android:src="@drawable/item_2"
+                        android:layout_marginStart="@dimen/_8sdp"
 
-                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/item_2"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
 
-                        android:layout_marginStart="@dimen/_8sdp"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textLocationLoad"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
 
-                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textColor="@color/textWhite75"
                         android:text="@string/MENU_LOCATION_LOAD"
-                        android:textSize="@dimen/_7ssp"
+                        android:textColor="@color/textWhite75"
 
-                        app:layout_constraintTop_toTopOf="@+id/imageItemLoad"
-                        app:layout_constraintStart_toEndOf="@+id/imageItemLoad"
+                        android:textSize="@dimen/_7ssp"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
 
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"/>
+                        app:layout_constraintStart_toEndOf="@+id/imageItemLoad"
+                        app:layout_constraintTop_toTopOf="@+id/imageItemLoad" />
 
                     <TextView
                         android:id="@+id/textLocationLoadStreet"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
 
+                        android:layout_marginEnd="@dimen/_10sdp"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textColor="@color/secondary_text"
                         android:hint="@string/MENU_LOCATION_LOAD_HINT"
-                        android:textColorHint="@color/secondary_text"
-                        android:textSize="@dimen/_5ssp"
                         android:maxLines="2"
+                        android:textColor="@color/secondary_text"
+                        android:textColorHint="@color/secondary_text"
 
-                        app:layout_constraintHorizontal_bias="0"
-                        app:layout_constraintVertical_bias="0.25"
-
-                        app:layout_constraintTop_toBottomOf="@+id/textLocationLoad"
+                        android:textSize="@dimen/_5ssp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/textLocationLoad"
-                        app:layout_constraintEnd_toEndOf="parent"
 
-                        android:layout_marginEnd="@dimen/_10sdp"/>
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintStart_toStartOf="@+id/textLocationLoad"
+                        app:layout_constraintTop_toBottomOf="@+id/textLocationLoad"
+
+                        app:layout_constraintVertical_bias="0.25" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -448,18 +458,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
 
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+
+                android:layout_marginBottom="@dimen/_16sdp"
                 app:cardBackgroundColor="@color/cardNightMode_Primary"
                 app:cardCornerRadius="@dimen/_15sdp"
+
                 app:cardElevation="@dimen/_5sdp"
-
-                app:layout_constraintTop_toBottomOf="@+id/itemUserData"
-                app:layout_constraintStart_toStartOf="@id/itemLocationSave"
                 app:layout_constraintEnd_toEndOf="@id/itemUserData"
-
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginBottom="@dimen/_16sdp"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginEnd="@dimen/_16sdp">
+                app:layout_constraintStart_toStartOf="@id/itemLocationSave"
+                app:layout_constraintTop_toBottomOf="@+id/itemUserData">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -470,52 +480,52 @@
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
 
-                        android:src="@drawable/rewards"
+                        android:layout_marginStart="@dimen/_8sdp"
 
-                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/rewards"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
 
-                        android:layout_marginStart="@dimen/_8sdp"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textRewardsTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:textSize="@dimen/_10ssp"
+                        android:layout_marginStart="@dimen/_8sdp"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textStyle="bold"
                         android:text="@string/MENU_REWARDS"
                         android:textColor="@color/textWhite75"
+                        android:textSize="@dimen/_10ssp"
 
-                        app:layout_constraintTop_toTopOf="@+id/imageItemRewards"
-                        app:layout_constraintStart_toEndOf="@+id/imageItemRewards"
-
+                        android:textStyle="bold"
                         app:layout_constraintHorizontal_bias="0"
-                        android:layout_marginStart="@dimen/_8sdp" />
+
+                        app:layout_constraintStart_toEndOf="@+id/imageItemRewards"
+                        app:layout_constraintTop_toTopOf="@+id/imageItemRewards" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/itemEstadistica"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        app:cardCornerRadius="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
                         app:cardBackgroundColor="@color/secondary_Card"
 
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:cardCornerRadius="@dimen/_15sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
 
-                        android:layout_marginEnd="@dimen/_5sdp">
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/rising"
-
                             android:layout_gravity="center"
+
                             android:layout_marginHorizontal="@dimen/_7sdp"
-                            android:layout_marginVertical="@dimen/_7sdp"/>
+                            android:layout_marginVertical="@dimen/_7sdp"
+                            android:src="@drawable/rising" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -534,12 +544,12 @@
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
 
-                app:layout_constraintStart_toStartOf="@+id/itemUserData"
                 app:layout_constraintEnd_toEndOf="@id/itemUserData"
-                app:layout_constraintTop_toBottomOf="@+id/itemRewards"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@+id/itemUserData"
 
-                app:layout_constraintVertical_bias="1.0"
-                app:layout_constraintHorizontal_bias="1">
+                app:layout_constraintTop_toBottomOf="@+id/itemRewards"
+                app:layout_constraintVertical_bias="1.0">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -561,15 +571,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:textSize="@dimen/_8ssp"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textStyle="bold"
                         android:text="@string/MENU_PAY_BLUE_ZONE"
                         android:textColor="@color/textWhite75"
+                        android:textSize="@dimen/_8ssp"
+                        android:textStyle="bold"
 
-                        app:layout_constraintTop_toTopOf="@+id/imageItemPay"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageItemPay"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toTopOf="@+id/imageItemPay" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -584,10 +594,10 @@
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
 
-                app:layout_constraintTop_toBottomOf="@+id/itemPay"
-                app:layout_constraintStart_toStartOf="@+id/itemPay"
+                app:layout_constraintBottom_toTopOf="@+id/itemContact"
                 app:layout_constraintEnd_toEndOf="@id/itemPay"
-                app:layout_constraintBottom_toTopOf="@+id/itemContact">
+                app:layout_constraintStart_toStartOf="@+id/itemPay"
+                app:layout_constraintTop_toBottomOf="@+id/itemPay">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -598,26 +608,26 @@
                         android:layout_width="@dimen/_35sdp"
                         android:layout_height="@dimen/_35sdp"
 
+                        android:layout_marginStart="@dimen/_8sdp"
                         android:src="@drawable/swap_1"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
 
-                        android:layout_marginStart="@dimen/_8sdp"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:textSize="@dimen/_8ssp"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textStyle="bold"
                         android:text="@string/MENU_SWAP_PARKING"
                         android:textColor="@color/textWhite75"
+                        android:textSize="@dimen/_8ssp"
+                        android:textStyle="bold"
 
-                        app:layout_constraintTop_toTopOf="@+id/imageItemSwap"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageItemSwap"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toTopOf="@+id/imageItemSwap" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -632,9 +642,9 @@
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
 
+                app:layout_constraintBottom_toBottomOf="@+id/itemLocationParking"
                 app:layout_constraintEnd_toEndOf="@id/itemPay"
-                app:layout_constraintStart_toStartOf="@id/itemPay"
-                app:layout_constraintBottom_toBottomOf="@+id/itemLocationParking">
+                app:layout_constraintStart_toStartOf="@id/itemPay">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -645,53 +655,53 @@
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
 
+                        android:layout_marginStart="@dimen/_8sdp"
                         android:src="@drawable/cliente"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
 
-                        android:layout_marginStart="@dimen/_8sdp"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:textSize="@dimen/_8ssp"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textStyle="bold"
                         android:text="@string/MENU_CONTACT"
                         android:textColor="@color/textWhite75"
+                        android:textSize="@dimen/_8ssp"
+                        android:textStyle="bold"
 
-                        app:layout_constraintTop_toTopOf="@+id/imageItemContact"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageItemContact"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toTopOf="@+id/imageItemContact" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="@dimen/_1sdp"
-                        android:background="#80FFFFFF"
+                        android:layout_marginStart="@dimen/_8sdp"
 
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageItemContact"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:background="#80FFFFFF"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
 
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"/>
+                        app:layout_constraintStart_toEndOf="@+id/imageItemContact"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:textSize="@dimen/_8ssp"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textStyle="bold"
                         android:text="@string/MENU_MESSAGES"
                         android:textColor="@color/textWhite75"
+                        android:textSize="@dimen/_8ssp"
+                        android:textStyle="bold"
 
                         app:layout_constraintBottom_toBottomOf="@+id/imageItemContact"
-                        app:layout_constraintStart_toEndOf="@+id/imageItemContact"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageItemContact" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -709,11 +719,11 @@
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
 
-                app:layout_constraintHorizontal_bias="1.0"
-
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/itemLocationSave"
+
                 app:layout_constraintEnd_toEndOf="@+id/itemLocationSave"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/itemLocationSave"
                 app:layout_constraintTop_toBottomOf="@+id/itemRewards">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -740,19 +750,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:textSize="@dimen/_10ssp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/montserrat_medium"
-                        android:textStyle="bold"
                         android:text="@string/MENU_PARKINGS"
                         android:textColor="@color/textWhite75"
+                        android:textSize="@dimen/_10ssp"
 
-                        app:layout_constraintTop_toBottomOf="@+id/imageLocationParking"
-                        app:layout_constraintStart_toStartOf="@id/imageLocationParking"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
-
                         app:layout_constraintHorizontal_bias="0"
 
-                        android:layout_marginTop="@dimen/_5sdp"/>
+                        app:layout_constraintStart_toStartOf="@id/imageLocationParking"
+
+                        app:layout_constraintTop_toBottomOf="@+id/imageLocationParking" />
 
                     <TextView
                         android:id="@+id/textLocationParkingData"
@@ -760,38 +770,38 @@
                         android:layout_height="wrap_content"
 
                         android:fontFamily="@font/montserrat_medium"
-                        android:textColor="@color/secondary_text"
                         android:hint="@string/MENU_PARKINGS_HINT"
+                        android:maxLines="2"
+                        android:textColor="@color/secondary_text"
                         android:textColorHint="@color/secondary_text"
                         android:textSize="@dimen/_7ssp"
-                        android:maxLines="2"
 
-                        app:layout_constraintTop_toBottomOf="@+id/textLocationParkingTitle"
+                        app:layout_constraintEnd_toStartOf="@+id/itemElectrica"
                         app:layout_constraintStart_toStartOf="@+id/textLocationParkingTitle"
-                        app:layout_constraintEnd_toStartOf="@+id/itemElectrica"/>
+                        app:layout_constraintTop_toBottomOf="@+id/textLocationParkingTitle" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/itemElectrica"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
-                        app:cardCornerRadius="@dimen/_14sdp"
-                        app:cardElevation="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
                         app:cardBackgroundColor="@color/secondary_Card"
 
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:cardCornerRadius="@dimen/_14sdp"
+                        app:cardElevation="@dimen/_5sdp"
                         app:layout_constraintBottom_toTopOf="@+id/itemGasolinera"
 
-                        android:layout_marginEnd="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_5sdp">
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/charger_1"
+                            android:layout_marginVertical="@dimen/_7sdp"
 
                             android:layout_marginStart="@dimen/_5sdp"
-                            android:layout_marginVertical="@dimen/_7sdp"/>
+                            android:src="@drawable/charger_1" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -799,24 +809,24 @@
                         android:id="@+id/itemGasolinera"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
-                        app:cardElevation="@dimen/_5sdp"
-                        app:cardCornerRadius="@dimen/_14sdp"
                         app:cardBackgroundColor="@color/secondary_Card"
+                        app:cardCornerRadius="@dimen/_14sdp"
+                        app:cardElevation="@dimen/_5sdp"
 
-                        app:layout_constraintStart_toStartOf="@+id/itemElectrica"
-                        app:layout_constraintTop_toBottomOf="@+id/itemElectrica"
                         app:layout_constraintBottom_toTopOf="@+id/itemCronometro"
-                        app:layout_constraintEnd_toEndOf="@id/itemElectrica">
+                        app:layout_constraintEnd_toEndOf="@id/itemElectrica"
+                        app:layout_constraintStart_toStartOf="@+id/itemElectrica"
+                        app:layout_constraintTop_toBottomOf="@+id/itemElectrica">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:src="@drawable/gas"
-
                             android:layout_gravity="center"
+
                             android:layout_marginHorizontal="@dimen/_7sdp"
-                            android:layout_marginVertical="@dimen/_7sdp"/>
+                            android:layout_marginVertical="@dimen/_7sdp"
+                            android:src="@drawable/gas" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -824,24 +834,24 @@
                         android:id="@+id/itemCronometro"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
-                        app:cardElevation="@dimen/_5sdp"
-                        app:cardCornerRadius="@dimen/_14sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         app:cardBackgroundColor="@color/secondary_Card"
+                        app:cardCornerRadius="@dimen/_14sdp"
 
-                        app:layout_constraintStart_toStartOf="@id/itemElectrica"
-                        app:layout_constraintTop_toBottomOf="@+id/itemGasolinera"
-                        app:layout_constraintEnd_toEndOf="@+id/itemElectrica"
+                        app:cardElevation="@dimen/_5sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/itemElectrica"
+                        app:layout_constraintStart_toStartOf="@id/itemElectrica"
 
-                        android:layout_marginTop="@dimen/_5sdp">
+                        app:layout_constraintTop_toBottomOf="@+id/itemGasolinera">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/chronometer"
-
                             android:layout_marginHorizontal="@dimen/_7sdp"
-                            android:layout_marginVertical="@dimen/_7sdp"/>
+
+                            android:layout_marginVertical="@dimen/_7sdp"
+                            android:src="@drawable/chronometer" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -857,38 +867,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/imageApp"
             android:layout_width="@dimen/_5sdp"
             android:layout_height="@dimen/_5sdp"
-            android:src="@drawable/copyright"
+            android:layout_marginStart="@dimen/_1sdp"
 
-            app:layout_constraintTop_toTopOf="@+id/textAppName"
+            android:src="@drawable/copyright"
             app:layout_constraintBottom_toBottomOf="@id/textAppName"
             app:layout_constraintStart_toEndOf="@+id/textAppName"
-            app:layout_constraintVertical_bias="0"
+            app:layout_constraintTop_toTopOf="@+id/textAppName"
 
-            android:layout_marginStart="@dimen/_1sdp"/>
+            app:layout_constraintVertical_bias="0" />
 
         <TextView
             android:id="@+id/textAppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:fontFamily="@font/montserrat_medium"
             android:text="@string/APP_NAME_BOTTOM"
             android:textColor="@color/lightDark_to_NightWhite_1"
-            android:fontFamily="@font/montserrat_medium"
-            android:textStyle="bold"
 
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.49"
 
-            android:layout_marginBottom="@dimen/_2sdp"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -22,13 +22,18 @@
     <string name="MENU_LOCATION_LOAD">MAPS LAST LOCATION</string>
     <string name="MENU_LOCATION_LOAD_HINT">STREET, Nº</string>
 
-    <string name="MENU_REWARDS">YOUR REWARDS</string>
     <string name="MENU_PARKINGS">PARKINGS</string>
     <string name="MENU_PARKINGS_HINT">City</string>
     <string name="MENU_PAY_BLUE_ZONE">PAY BLUE ZONE</string>
     <string name="MENU_SWAP_PARKING">SWAP PARKING</string>
     <string name="MENU_CONTACT">CONTACT</string>
     <string name="MENU_MESSAGES">MESSAGES</string>
+
+    <string name="MENU_REWARDS">YOUR REWARDS</string>
+    <string name="MENU_REWARDS_COIN_NAME">ADA (Cardano)</string>
+    <string name="MENU_REWARDS_COIN_TOTAL">385.7 ADA</string>
+    <string name="MENU_REWARDS_TRANSACTION">12472522234</string>
+    <string name="MENU_REWARDS_TRANSACTION_DATE">09/05/2022</string>
 
     <string name="MENU_TOAST_LOCATION_LOAD">¡Guarde primero su localización!</string>
     <string name="APP_NAME_BOTTOM">APPARCA</string>
@@ -108,5 +113,21 @@
         ; <item>Toyota</item> ; <item>Volkswagen</item> ;
         <item>Volvo</item>
     </string-array>
+    <string name="title_activity_user_settings">UserSettings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>
 

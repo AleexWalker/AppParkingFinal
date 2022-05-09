@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/ic_cardano_1.xml" value="0.311" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/ic_clients_background.xml" value="0.311" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/ic_copyright__1_.xml" value="0.311" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/ic_item_cardano.xml" value="0.311" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/ic_search.xml" value="0.311" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_acceder_localizacion.xml" value="0.30117753623188404" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_chronometer.xml" value="0.32587719298245615" />
@@ -19,12 +21,14 @@
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_places_electric_chargers.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_places_gas_station.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_pruebas.xml" value="0.33" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_rewards.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_swap_parking.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_user_data.xml" value="0.5" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_user_menu.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_user_menu_exp.xml" value="0.5" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_dialog_chrono.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_toast_maps_add_1.xml" value="0.32587719298245615" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_toast_swap_1.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_toast_user_1.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_toast_user_2.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_1.xml" value="0.33" />
@@ -45,7 +49,9 @@
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_maps_boton_type.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_message.xml" value="0.5" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_parking.xml" value="0.30117753623188404" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_rewards.xml" value="0.5" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/notification_collapsed_item.xml" value="0.33" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/settings_activity.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/spinner_item.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/mipmap-anydpi-v26/ic_clientes.xml" value="0.2355" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/mipmap-anydpi-v26/ic_clientes_round.xml" value="0.2355" />
