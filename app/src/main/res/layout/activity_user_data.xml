@@ -269,7 +269,7 @@
                         android:layout_marginBottom="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_8sdp"
 
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="@color/textWhite90"
                         android:hint="Name"
                         android:textColorHint="@color/white"
 

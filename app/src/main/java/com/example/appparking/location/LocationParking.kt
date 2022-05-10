@@ -77,6 +77,15 @@ class LocationParking : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
         getNearbyPlace(nearbyLocation)
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        transition()
+    }
+
+    private fun transition() {
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out)
+    }
+
     private fun getCurrentLocation() {
         val fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(this)

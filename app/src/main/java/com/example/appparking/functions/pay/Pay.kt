@@ -31,6 +31,15 @@ class Pay: AppCompatActivity() {
         loadUserData()
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        transition()
+    }
+
+    private fun transition() {
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out)
+    }
+
     private fun loadTarjetas() {
         val itemTarjeta = ArrayList<PayCard>()
         baseDatos

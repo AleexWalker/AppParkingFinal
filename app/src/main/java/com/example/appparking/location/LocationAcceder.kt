@@ -100,6 +100,15 @@ class LocationAcceder : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMar
         return true
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        transition()
+    }
+
+    private fun transition() {
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out)
+    }
+
     private fun setUpMap() {
         if (ActivityCompat.checkSelfPermission(
                 this,

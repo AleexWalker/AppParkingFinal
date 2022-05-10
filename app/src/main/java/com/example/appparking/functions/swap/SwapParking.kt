@@ -70,4 +70,13 @@ class SwapParking : AppCompatActivity() {
             autoCompleteMessages.setAdapter(adaptadorAutoComplete)
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        transition()
+    }
+
+    private fun transition() {
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out)
+    }
 }

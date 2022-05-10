@@ -6,6 +6,7 @@ import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.widget.ArrayAdapter
 import android.widget.Toast
 
@@ -18,6 +19,7 @@ import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
 
 import kotlinx.android.synthetic.main.activity_user_data.*
+import kotlinx.android.synthetic.main.custom_toast_maps_add_1.*
 
 class UserData : AppCompatActivity() {
 
@@ -47,6 +49,15 @@ class UserData : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        transition()
+    }
+
+    private fun transition() {
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out)
+    }
+
     private fun loadData() {
         baseDatos = Firebase.firestore
 
@@ -69,7 +80,7 @@ class UserData : AppCompatActivity() {
 
     private fun saveData() {
         if (textDataNombre.text!!.isEmpty()) {
-            Toast.makeText(this, "¡Has de rellenar todos los campos!", Toast.LENGTH_SHORT).show()
+            toastPersonalizadoUserData1()
         } else {
             with(binding){
                 nombre = textDataNombre.text.toString()
@@ -110,5 +121,13 @@ class UserData : AppCompatActivity() {
             spinnerModel.setSelection(0)
         }
     }
-}
 
+    private fun toastPersonalizadoUserData1() {
+        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_user_data_1, constraintToastMaps1)
+        Toast(this).apply {
+            duration = Toast.LENGTH_LONG
+            setGravity(Gravity.BOTTOM, 0, 40)
+            view = layoutToast
+        }.show()
+    }
+}

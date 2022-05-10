@@ -43,6 +43,7 @@ class PlacesElectricChargers : AppCompatActivity(), OnMapReadyCallback, GoogleMa
     private lateinit var binding: ActivityPlacesElectricChargersBinding
     private lateinit var googlePlaceList: ArrayList<GooglePlaceModel>
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+
     private var radius = 2500
     private var currentLocation: Location
     private val locationViewModel: LocationViewModel by viewModels<LocationViewModel>()
@@ -89,6 +90,15 @@ class PlacesElectricChargers : AppCompatActivity(), OnMapReadyCallback, GoogleMa
         enableLocation()
         setupMap()
         getNearbyPlace(nearbyLocation)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        transition()
+    }
+
+    private fun transition() {
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out)
     }
 
     private fun moveCameraToLocation(location: Location) {

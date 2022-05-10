@@ -1,5 +1,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -36,7 +37,8 @@
 
         android:layout_marginVertical="@dimen/_20sdp"/>
 
-    <androidx.appcompat.widget.SwitchCompat
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchNotification"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_30sdp"
 
@@ -44,7 +46,21 @@
         app:layout_constraintBottom_toBottomOf="@+id/textNotification"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:layout_marginEnd="@dimen/_16sdp"/>
+        android:layout_marginEnd="@dimen/_16sdp" />
+
+    <View
+        android:id="@+id/viewBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/textWhite10"
+
+        app:layout_constraintTop_toBottomOf="@+id/textNotification"
+        app:layout_constraintBottom_toTopOf="@+id/textSounds"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"/>
 
     <TextView
         android:id="@+id/textSounds"
@@ -55,12 +71,14 @@
 
         android:text="Enable sounds"
 
-        app:layout_constraintTop_toBottomOf="@+id/textNotification"
+        app:layout_constraintTop_toBottomOf="@+id/viewBar"
         app:layout_constraintStart_toStartOf="@+id/textSettings"
+        app:layout_constraintBottom_toTopOf="@+id/viewBar2"
 
         android:layout_marginVertical="@dimen/_20sdp"/>
 
-    <androidx.appcompat.widget.SwitchCompat
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchSounds"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_30sdp"
 
@@ -68,6 +86,58 @@
         app:layout_constraintBottom_toBottomOf="@+id/textSounds"
         app:layout_constraintEnd_toEndOf="parent"
 
+        android:layout_marginEnd="@dimen/_16sdp" />
+
+    <View
+        android:id="@+id/viewBar2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/textWhite10"
+
+        app:layout_constraintTop_toBottomOf="@+id/textSounds"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textVibration"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginHorizontal="@dimen/_20sdp" />
+
+    <TextView
+        android:id="@+id/textVibration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/textWhite90"
+
+        android:text="Enable vibration"
+
+        app:layout_constraintTop_toBottomOf="@+id/viewBar2"
+        app:layout_constraintStart_toStartOf="@+id/textSettings"
+        app:layout_constraintBottom_toTopOf="@+id/viewBar3"
+
+        android:layout_marginVertical="@dimen/_20sdp"/>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchVibration"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_30sdp"
+
+        app:layout_constraintTop_toTopOf="@+id/textVibration"
+        app:layout_constraintBottom_toBottomOf="@+id/textVibration"
+        app:layout_constraintEnd_toEndOf="parent"
+
         android:layout_marginEnd="@dimen/_16sdp"/>
+
+    <View
+        android:id="@+id/viewBar3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/textWhite10"
+
+        app:layout_constraintTop_toBottomOf="@+id/textVibration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

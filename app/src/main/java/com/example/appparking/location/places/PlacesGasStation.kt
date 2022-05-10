@@ -91,6 +91,15 @@ class PlacesGasStation : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMa
         getNearbyPlace(nearbyLocation)
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        transition()
+    }
+
+    private fun transition() {
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out)
+    }
+
     private fun moveCameraToLocation(location: Location) {
 
         val currentLatLong = LatLng(location.latitude, location.longitude)
