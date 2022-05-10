@@ -1,6 +1,5 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,7 +10,7 @@
         android:id="@+id/textSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="@string/MENU_SETTINGS"
         android:fontFamily="@font/montserrat_extrabold"
         android:textSize="@dimen/_20sdp"
         android:textColor="@color/textWhite90"
@@ -20,8 +19,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:layout_marginTop="@dimen/_28sdp"
+        android:layout_marginTop="@dimen/_24sdp"
         app:layout_constraintHorizontal_bias="0.15"/>
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+
+        app:layout_constraintTop_toTopOf="@+id/textSettings"
+        app:layout_constraintBottom_toBottomOf="@+id/textSettings"
+        app:layout_constraintEnd_toEndOf="@+id/viewBarSettings"
+
+        android:src="@drawable/back1" />
+
+    <View
+        android:id="@+id/viewBarSettings"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/textWhite90"
+
+        app:layout_constraintTop_toBottomOf="@+id/textSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginHorizontal="@dimen/_20sdp"/>
+
+    <ImageView
+        android:id="@+id/imageNotification"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:src="@drawable/notification"
+
+        app:layout_constraintStart_toStartOf="@+id/textSettings"
+        app:layout_constraintTop_toBottomOf="@+id/textSettings"
+        app:layout_constraintBottom_toTopOf="@+id/viewBar"
+
+        android:layout_marginTop="@dimen/_10sdp"/>
 
     <TextView
         android:id="@+id/textNotification"
@@ -30,12 +64,13 @@
         android:fontFamily="@font/montserrat_medium"
         android:textColor="@color/textWhite90"
 
-        android:text="Enable message notifications"
+        android:text="@string/MENU_SETTINGS_NOTIFICATIONS"
 
-        app:layout_constraintTop_toBottomOf="@+id/textSettings"
-        app:layout_constraintStart_toStartOf="@+id/textSettings"
+        app:layout_constraintTop_toTopOf="@+id/imageNotification"
+        app:layout_constraintStart_toEndOf="@+id/imageNotification"
+        app:layout_constraintBottom_toBottomOf="@+id/imageNotification"
 
-        android:layout_marginVertical="@dimen/_20sdp"/>
+        android:layout_marginStart="@dimen/_10sdp"/>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/switchNotification"
@@ -59,8 +94,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"/>
+        android:layout_marginHorizontal="@dimen/_20sdp" />
+
+    <ImageView
+        android:id="@+id/imageSound"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+
+        app:layout_constraintStart_toStartOf="@+id/textSettings"
+        app:layout_constraintTop_toBottomOf="@+id/viewBar"
+        app:layout_constraintBottom_toTopOf="@+id/viewBar2"
+
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:src="@drawable/sound"/>
 
     <TextView
         android:id="@+id/textSounds"
@@ -69,13 +115,13 @@
         android:fontFamily="@font/montserrat_medium"
         android:textColor="@color/textWhite90"
 
-        android:text="Enable sounds"
+        android:text="@string/MENU_SETTINGS_SOUNDS"
 
-        app:layout_constraintTop_toBottomOf="@+id/viewBar"
-        app:layout_constraintStart_toStartOf="@+id/textSettings"
-        app:layout_constraintBottom_toTopOf="@+id/viewBar2"
+        app:layout_constraintTop_toTopOf="@+id/imageSound"
+        app:layout_constraintStart_toEndOf="@+id/imageSound"
+        app:layout_constraintBottom_toBottomOf="@+id/imageSound"
 
-        android:layout_marginVertical="@dimen/_20sdp"/>
+        android:layout_marginStart="@dimen/_10sdp"/>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/switchSounds"
@@ -101,6 +147,17 @@
 
         android:layout_marginHorizontal="@dimen/_20sdp" />
 
+    <ImageView
+        android:id="@+id/imageVibration"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:src="@drawable/vibration"
+
+        app:layout_constraintStart_toStartOf="@+id/textSettings"
+        app:layout_constraintTop_toBottomOf="@+id/viewBar2" />
+
     <TextView
         android:id="@+id/textVibration"
         android:layout_width="wrap_content"
@@ -108,13 +165,13 @@
         android:fontFamily="@font/montserrat_medium"
         android:textColor="@color/textWhite90"
 
-        android:text="Enable vibration"
+        android:text="@string/MENU_SETTINGS_VIBRATION"
 
-        app:layout_constraintTop_toBottomOf="@+id/viewBar2"
-        app:layout_constraintStart_toStartOf="@+id/textSettings"
-        app:layout_constraintBottom_toTopOf="@+id/viewBar3"
+        app:layout_constraintTop_toTopOf="@+id/imageVibration"
+        app:layout_constraintStart_toEndOf="@+id/imageVibration"
+        app:layout_constraintBottom_toBottomOf="@+id/imageVibration"
 
-        android:layout_marginVertical="@dimen/_20sdp"/>
+        android:layout_marginStart="@dimen/_10sdp"/>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/switchVibration"
@@ -127,17 +184,167 @@
 
         android:layout_marginEnd="@dimen/_16sdp"/>
 
+    <TextView
+        android:id="@+id/textPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Personal"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:textSize="@dimen/_20sdp"
+        android:textColor="@color/textWhite90"
+
+        app:layout_constraintTop_toBottomOf="@+id/imageVibration"
+        app:layout_constraintStart_toStartOf="@id/textSettings"
+
+        android:layout_marginTop="@dimen/_24sdp" />
+
     <View
-        android:id="@+id/viewBar3"
+        android:id="@+id/viewBar4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/textWhite90"
+
+        app:layout_constraintTop_toBottomOf="@+id/textPersonal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginHorizontal="@dimen/_20sdp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/viewBar4"
+        app:layout_constraintBottom_toTopOf="@+id/viewBar5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:foreground="?android:attr/selectableItemBackground" />
+
+    <ImageView
+        android:id="@+id/imageAccount"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:src="@drawable/man"
+
+        app:layout_constraintStart_toStartOf="@+id/textPersonal"
+        app:layout_constraintTop_toBottomOf="@+id/textPersonal"
+        app:layout_constraintBottom_toTopOf="@+id/viewBar5"
+
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/textAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Account/Sync"
+        android:textColor="@color/textWhite90"
+
+        app:layout_constraintTop_toTopOf="@+id/imageAccount"
+        app:layout_constraintBottom_toBottomOf="@+id/imageAccount"
+        app:layout_constraintStart_toEndOf="@+id/imageAccount"
+
+        android:layout_marginStart="@dimen/_10sdp"/>
+
+    <View
+        android:id="@+id/viewBar5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
         android:background="@color/textWhite10"
 
-        app:layout_constraintTop_toBottomOf="@+id/textVibration"
+        app:layout_constraintTop_toBottomOf="@+id/textAccount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textLocation"
+
+        android:layout_marginHorizontal="@dimen/_20sdp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/viewBar5"
+        app:layout_constraintBottom_toTopOf="@+id/viewBar6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageLocation"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:src="@drawable/location"
+
+        app:layout_constraintStart_toStartOf="@+id/textPersonal"
+        app:layout_constraintTop_toBottomOf="@+id/viewBar5"
+        app:layout_constraintBottom_toTopOf="@+id/viewBar6"
+
+        android:layout_marginVertical="@dimen/_20sdp"/>
+
+    <TextView
+        android:id="@+id/textLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Location Services"
+        android:textColor="@color/textWhite90"
+
+        app:layout_constraintTop_toTopOf="@+id/imageLocation"
+        app:layout_constraintBottom_toBottomOf="@+id/imageLocation"
+        app:layout_constraintStart_toEndOf="@+id/imageLocation"
+
+        android:layout_marginStart="@dimen/_10sdp"/>
+
+    <View
+        android:id="@+id/viewBar6"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/textWhite10"
+
+        app:layout_constraintTop_toBottomOf="@+id/textLocation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textSecurity"
+
+        android:layout_marginHorizontal="@dimen/_20sdp" />
+
+    <ImageView
+        android:id="@+id/imageSecurity"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:src="@drawable/padlock"
+
+        app:layout_constraintStart_toStartOf="@+id/textPersonal"
+        app:layout_constraintTop_toBottomOf="@+id/viewBar6"
+        app:layout_constraintBottom_toTopOf="@+id/viewBar7"
+
+        android:layout_marginVertical="@dimen/_20sdp"/>
+
+    <TextView
+        android:id="@+id/textSecurity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Security"
+        android:textColor="@color/textWhite90"
+
+        app:layout_constraintTop_toTopOf="@+id/imageSecurity"
+        app:layout_constraintBottom_toBottomOf="@+id/imageSecurity"
+        app:layout_constraintStart_toEndOf="@+id/imageSecurity"
+
+        android:layout_marginStart="@dimen/_10sdp"/>
+
+    <View
+        android:id="@+id/viewBar7"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/textWhite10"
+
+        app:layout_constraintTop_toBottomOf="@+id/textSecurity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"/>
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

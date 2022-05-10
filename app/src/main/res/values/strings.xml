@@ -130,5 +130,9 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="MENU_DATA_CAMPOS">¡Has de rellenar todos los campos!</string>
+    <string name="MENU_SETTINGS">APP Settings</string>
+    <string name="MENU_SETTINGS_NOTIFICATIONS">Enable message notifications</string>
+    <string name="MENU_SETTINGS_SOUNDS">Enable sounds</string>
+    <string name="MENU_SETTINGS_VIBRATION">Enable vibration</string>
 </resources>
 

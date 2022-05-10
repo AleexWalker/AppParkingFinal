@@ -2,6 +2,7 @@ package com.example.appparking.ui
 
 import android.annotation.SuppressLint
 import android.app.NotificationManager
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
@@ -31,13 +32,16 @@ class UserSettings : AppCompatActivity() {
 
         with(binding){
 
+            back.setOnClickListener {
+                finish()
+                startActivity(Intent(this@UserSettings, UserMenu::class.java))
+            }
+
             switchNotification.setOnCheckedChangeListener { compoundButton, b ->
                 if (b) {
-                    Log.e("CheckBox", "Switch noti false ----> true")
                     switchNotification.isChecked = true
                     saveSwitchStateConnected("1")
                 } else {
-                    Log.e("CheckBox", "Switch noti true ----> false")
                     switchNotification.isChecked = false
                     saveSwitchStateDisconnected("1")
                 }
@@ -46,12 +50,10 @@ class UserSettings : AppCompatActivity() {
             switchSounds.setOnCheckedChangeListener { compoundButton, b ->
                 if (b) {
                     NotificationManager.IMPORTANCE_HIGH
-                    Log.e("CheckBox", "Switch noti false ----> true")
                     switchSounds.isChecked = true
                     saveSwitchStateConnected("2")
                 } else {
                     NotificationManager.IMPORTANCE_LOW
-                    Log.e("CheckBox", "Switch noti true ----> false")
                     switchSounds.isChecked = false
                     saveSwitchStateDisconnected("2")
                 }
@@ -59,11 +61,9 @@ class UserSettings : AppCompatActivity() {
 
             switchVibration.setOnCheckedChangeListener { compoundButton, b ->
                 if (b) {
-                    Log.e("CheckBox", "Switch noti false ----> true")
                     switchVibration.isChecked = true
                     saveSwitchStateConnected("3")
                 } else {
-                    Log.e("CheckBox", "Switch noti true ----> false")
                     switchVibration.isChecked = false
                     saveSwitchStateDisconnected("3")
                 }
