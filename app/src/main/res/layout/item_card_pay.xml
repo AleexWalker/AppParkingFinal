@@ -45,7 +45,7 @@
                 android:id="@+id/imageMasterCardPay"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:src="@drawable/mastercard"
+                android:src="@drawable/menu_pay_mastercard"
 
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
                 android:id="@+id/imageNfcPay"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/nfc"
+                android:src="@drawable/menu_pay_nfc"
 
                 app:layout_constraintTop_toTopOf="@+id/imageChipPay"
                 app:layout_constraintBottom_toBottomOf="@+id/imageChipPay"
@@ -69,7 +69,7 @@
                 android:id="@+id/imageChipPay"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
-                android:src="@drawable/chip"
+                android:src="@drawable/menu_pay_chip"
 
                 app:layout_constraintTop_toBottomOf="@+id/textBankPay"
                 app:layout_constraintStart_toEndOf="@+id/imageNfcPay"

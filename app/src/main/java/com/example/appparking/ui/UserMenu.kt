@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.*
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -12,13 +13,16 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatDelegate
 
-import com.example.appparking.Pruebas
 import com.example.appparking.R
+import com.example.appparking.bluetooth.Bluetooth
 import com.example.appparking.databinding.ActivityUserMenuBinding
 import com.example.appparking.functions.swap.SwapParking
 import com.example.appparking.functions.pay.Pay
@@ -37,11 +41,6 @@ import kotlinx.android.synthetic.main.custom_dialog_chrono.*
 
 import kotlinx.android.synthetic.main.custom_dialog_chrono.view.*
 import kotlinx.android.synthetic.main.custom_toast_maps_add_1.*
-import kotlinx.android.synthetic.main.item_1.*
-import kotlinx.android.synthetic.main.item_2.*
-import kotlinx.android.synthetic.main.item_3.*
-import kotlinx.android.synthetic.main.item_4.*
-import kotlinx.android.synthetic.main.item_5.*
 
 import java.text.SimpleDateFormat
 import java.util.*
@@ -71,9 +70,6 @@ class UserMenu : AppCompatActivity() {
         binding = ActivityUserMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        baseDatos = Firebase.firestore
-        baseDatos.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
-
         /**
          * Recogemos todos los datos desde Firebase posteriormente enviados desde la clase de GoogleMaps
          * @param latitud: Parámetro de tipo Double que guarda la Latiud
@@ -89,14 +85,20 @@ class UserMenu : AppCompatActivity() {
              * @param modelo: Modelo de vehículo del usuario recogido desde Firebase el cual podrá ser modificado por el usuario.
              * Estos 3 parámetros conformarán momentáneamente el perfil privado de cada Usuario el cual al iniciar la APP se identificará mediante un usuario y una contraseña.
              */
-            cardHeader.setOnClickListener { startActivity(Intent(applicationContext, UserData::class.java)) ; transition() }
+            cardHeader.setOnClickListener {
+                startActivity(Intent(applicationContext, UserData::class.java))
+                transition()
+            }
 
             /**
              * Cuando el usuario seleccione este ItemMenu será llevado automáticamente a LocationGuardar que consiste en un Maps Activity.
              * En dicha Activity el usuario podrá guardar la localización en tiempo real de su vehículo.
              * Incluso podrá mover el marker de la localización por si la ubicación mediante maps no es exacta del todo
              */
-            itemLocationSave.setOnClickListener { startActivity(Intent(applicationContext, LocationGuardar::class.java)) ; transition() }
+            itemLocationSave.setOnClickListener {
+                startActivity(Intent(applicationContext, LocationGuardar::class.java))
+                transition()
+            }
 
             /**
              * Cuando el usuario seleccione este ItemMenu será llevado automáticamente a LocationGuardar que consiste en un Maps Activity.
@@ -122,44 +124,112 @@ class UserMenu : AppCompatActivity() {
              * @param modelo: Modelo de vehículo del usuario recogido desde Firebase el cual podrá ser modificado por el usuario.
              * Estos 3 parámetros conformarán momentáneamente el perfil privado de cada Usuario el cual al iniciar la APP se identificará mediante un usuario y una contraseña.
              */
-            itemUserData.setOnClickListener { startActivity(Intent(applicationContext, UserData::class.java)) ; transition() }
+            itemUserData.setOnClickListener {
+                startActivity(Intent(applicationContext, UserData::class.java))
+                transition()
+            }
 
             /**
              * Cuando el usuario seleccione este Itemmenu será llevado automáticamente a LocationParking que consiste en un Maps Activity.
              * En dicha Activity se abrirá en un Fragment Google Maps con los parkings más cercanos marcados en Maps.
              */
-            itemLocationParking.setOnClickListener { startActivity(Intent(applicationContext, LocationParking::class.java)) ; transition() }
+            itemLocationParking.setOnClickListener {
+                startActivity(Intent(applicationContext, LocationParking::class.java))
+                transition()
+            }
 
             /**
              * Cuando el usuario seleccione este Itemmenu será llevado automáticamente a PlacesElectricChargers que consiste en un Maps Activity.
              * De nuevo este Activity consistirá en un Maps Fragment en el cual estrán marcados los cargadores eléctricos de vehículos cercanos.
              */
-            itemElectrica.setOnClickListener { startActivity(Intent(this@UserMenu, PlacesElectricChargers::class.java)) ; transition() }
+            itemElectrica.setOnClickListener {
+                startActivity(Intent(this@UserMenu, PlacesElectricChargers::class.java))
+                transition()
+            }
 
             /**
              * Cuando el usuario seleccione este Itemmenu será llevado automáticamente a PlacesGasStation que consiste en un Maps Activity.
              * De nuevo este Activity consistirá en un Maps Fragment en el cual estrán marcadas las gasolineras cercanas.
              */
-            itemGasolinera.setOnClickListener { startActivity(Intent(this@UserMenu, PlacesGasStation::class.java)) ; transition() }
+            itemGasolinera.setOnClickListener {
+                startActivity(Intent(this@UserMenu, PlacesGasStation::class.java))
+                transition()
+            }
 
             /**
              * Cuando el usuario seleccione este ItemMenu se despliegará automáticamente un AlertDialog con un widget de TimePicker.
              * Con esto, el usuario seleccionará hasta que hora tiene la Zona Azul disponible y posteriormente comenzará una cuenta atrás en segundo plano.
              * 5 minutos antes de acabar la cuenta atrás se mandrá una notificación de que la Zona Azul estará a punto de terminar.
              */
-            itemCronometro.setOnClickListener { showAlertView() }
+            itemCronometro.setOnClickListener {
+                showAlertView()
+            }
 
-            itemRewards.setOnClickListener { startActivity(Intent(applicationContext, Rewards::class.java)) ; transition() }
+            itemRewards.setOnClickListener {
+                startActivity(Intent(applicationContext, Rewards::class.java))
+                transition()
+            }
 
             itemEstadistica.setOnClickListener { showNotification() }
 
-            itemPay.setOnClickListener { startActivity(Intent(this@UserMenu, Pay::class.java)) ; transition() }
+            itemPay.setOnClickListener {
+                startActivity(Intent(this@UserMenu, Pay::class.java))
+                transition()
+            }
 
-            itemSwapParking.setOnClickListener { startActivity(Intent(this@UserMenu, SwapParking::class.java)) ; transition() }
+            itemSwapParking.setOnClickListener {
+                startActivity(Intent(this@UserMenu, SwapParking::class.java))
+                transition()
+            }
 
-            itemContact.setOnClickListener { val intent = Intent(Intent.ACTION_DIAL) ; intent.data = Uri.parse(("tel:012345678")) ; startActivity(intent)}
+            itemContact.setOnClickListener {
+                val intent = Intent(Intent.ACTION_DIAL)
+                intent.data = Uri.parse(("tel:012345678"))
+                startActivity(intent)
+            }
 
-            botonSettings.setOnClickListener { startActivity(Intent(this@UserMenu, UserSettings::class.java)) ; transition() }
+            botonSettings.setOnClickListener {
+                startActivity(Intent(this@UserMenu, UserSettings::class.java))
+                transition()
+            }
+
+            itemBluetooth.setOnClickListener {
+                startActivity(Intent(this@UserMenu, Bluetooth::class.java))
+                transition()
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        when (this.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                Log.e("Mode", "YES")
+                with(binding){
+                    imageNightMode.visibility = View.VISIBLE
+                    imageLightMode.visibility = View.INVISIBLE
+                    cardLightNight.setBackgroundColor(resources.getColor(R.color.card_background_darker))
+                    cardLightNight.setOnClickListener {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    }
+                }
+            }
+            Configuration.UI_MODE_NIGHT_NO -> {
+                Log.e("Mode", "NO")
+                with(binding){
+                    imageLightMode.visibility = View.VISIBLE
+                    imageNightMode.visibility = View.INVISIBLE
+                    cardLightNight.setBackgroundColor(resources.getColor(R.color.white))
+                    cardLightNight.setOnClickListener {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    }
+                }
+            }
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> { Log.e("Mode", "UNDEFINED") }
         }
     }
 
@@ -231,14 +301,14 @@ class UserMenu : AppCompatActivity() {
                 .setContentTitle("Zona Azul")
                 .setContentText("Zona azul finaliza proximamente")
                 .setSmallIcon(R.drawable.icon_app)
-                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.chronometer))
+                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.menu_location_parking_chronometer))
                 .setContentIntent(pendingIntent)
         } else {
             builder = Notification.Builder(this)
                 .setContentTitle("Code")
                 .setContentText("Notification")
-                .setSmallIcon(R.drawable.iconoapp2)
-                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.iconoapp2))
+                .setSmallIcon(R.drawable.icon_app_1)
+                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.icon_app_1))
                 .setContentIntent(pendingIntent)
         }
         notificationManager.notify(1234, builder.build())
@@ -247,7 +317,8 @@ class UserMenu : AppCompatActivity() {
     private fun getCurrentDate(): String {
         return SimpleDateFormat("EEEE, HH:mm", Locale.getDefault()).format(Date())
     }
-    private fun getCurrentTime(): String {
+
+    fun getCurrentTime(): String {
         return SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
     }
 
@@ -293,6 +364,7 @@ class UserMenu : AppCompatActivity() {
      */
     @SuppressLint("SetTextI18n")
     private fun loadUserData() {
+        baseDatos = Firebase.firestore
         baseDatos
             .collection("Usuarios")
             .document("Data")
@@ -324,7 +396,7 @@ class UserMenu : AppCompatActivity() {
                         textLocationParkingData.text = "${result.getString("Localidad")}"
 
                         marcaItemProfile.text = result.getString("MarcaTelefono")
-                        modelItemProfile.text = result.getString("Modelo")
+                        //modelItemProfile.text = result.getString("Modelo")
                     }
                 }
             }

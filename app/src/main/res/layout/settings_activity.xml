@@ -31,7 +31,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/textSettings"
         app:layout_constraintEnd_toEndOf="@+id/viewBarSettings"
 
-        android:src="@drawable/back1" />
+        android:src="@drawable/menu_back" />
 
     <View
         android:id="@+id/viewBarSettings"
@@ -49,7 +49,7 @@
         android:id="@+id/imageNotification"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
-        android:src="@drawable/notification"
+        android:src="@drawable/menu_settings_notification"
 
         app:layout_constraintStart_toStartOf="@+id/textSettings"
         app:layout_constraintTop_toBottomOf="@+id/textSettings"
@@ -106,7 +106,7 @@
         app:layout_constraintBottom_toTopOf="@+id/viewBar2"
 
         android:layout_marginVertical="@dimen/_20sdp"
-        android:src="@drawable/sound"/>
+        android:src="@drawable/menu_settings_sound"/>
 
     <TextView
         android:id="@+id/textSounds"
@@ -153,7 +153,7 @@
         android:layout_height="@dimen/_20sdp"
 
         android:layout_marginVertical="@dimen/_20sdp"
-        android:src="@drawable/vibration"
+        android:src="@drawable/menu_settings_vibration"
 
         app:layout_constraintStart_toStartOf="@+id/textSettings"
         app:layout_constraintTop_toBottomOf="@+id/viewBar2" />
@@ -225,7 +225,7 @@
         android:id="@+id/imageAccount"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
-        android:src="@drawable/man"
+        android:src="@drawable/menu_cardheader_man"
 
         app:layout_constraintStart_toStartOf="@+id/textPersonal"
         app:layout_constraintTop_toBottomOf="@+id/textPersonal"
@@ -273,7 +273,7 @@
         android:id="@+id/imageLocation"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
-        android:src="@drawable/location"
+        android:src="@drawable/menu_settings_location"
 
         app:layout_constraintStart_toStartOf="@+id/textPersonal"
         app:layout_constraintTop_toBottomOf="@+id/viewBar5"
@@ -312,7 +312,7 @@
         android:id="@+id/imageSecurity"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
-        android:src="@drawable/padlock"
+        android:src="@drawable/menu_settings_security"
 
         app:layout_constraintStart_toStartOf="@+id/textPersonal"
         app:layout_constraintTop_toBottomOf="@+id/viewBar6"

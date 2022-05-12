@@ -30,7 +30,7 @@
                 android:id="@+id/imagenMapsBack"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
-                android:src="@drawable/back1"
+                android:src="@drawable/menu_back"
 
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

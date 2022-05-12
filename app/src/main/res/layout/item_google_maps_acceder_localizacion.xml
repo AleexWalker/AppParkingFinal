@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/_8sdp"
-            android:src="@drawable/item_1"
+            android:src="@drawable/menu_location_guardar"
             android:tint="@color/white"/>
 
     </com.google.android.material.card.MaterialCardView>

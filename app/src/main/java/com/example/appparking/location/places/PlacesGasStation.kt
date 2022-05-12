@@ -201,7 +201,7 @@ class PlacesGasStation : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMa
     }
 
     private fun getCustomIcon(): BitmapDescriptor {
-        val background = ContextCompat.getDrawable(this, R.drawable.mapa)
+        val background = ContextCompat.getDrawable(this, R.drawable.menu_cardheader_mapa)
         background?.setTint(resources.getColor(R.color.primary))
         background?.setBounds(0,0, background.intrinsicWidth, background.intrinsicHeight)
         val bitmap = Bitmap.createBitmap(

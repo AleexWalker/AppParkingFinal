@@ -36,7 +36,7 @@
         android:layout_width="@dimen/_26sdp"
         android:layout_height="@dimen/_26sdp"
 
-        android:src="@drawable/setting"
+        android:src="@drawable/menu_settings"
         android:tint="@color/white"
 
         app:layout_constraintBottom_toBottomOf="@+id/textTitle"
@@ -51,14 +51,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:strokeColor="@color/textWhite10"
+        app:strokeColor="@color/secondary_Card_Darker_LightMode"
         app:strokeWidth="@dimen/_1sdp"
 
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        app:cardBackgroundColor="@color/cardNightMode_Primary"
+        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
         app:cardCornerRadius="@dimen/_20sdp"
         app:cardElevation="@dimen/_7sdp"
+
+        android:outlineSpotShadowColor="@color/black"
 
         app:layout_constraintBottom_toBottomOf="@+id/viewHeaderBackground"
         app:layout_constraintTop_toBottomOf="@+id/viewHeaderBackground">
@@ -66,27 +68,29 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_14sdp">
+
+            android:padding="@dimen/_15sdp">
 
             <TextView
                 android:id="@+id/textViews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/CARD_HEADER_DATA"
-                android:textColor="@color/textWhite90"
+                android:textColor="@color/textLight90_Night"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/CARD_HEADER_MORE"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" />-->
 
             <LinearLayout
                 android:id="@+id/layoutClients"
@@ -102,7 +106,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/man" />
+                    android:src="@drawable/menu_cardheader_man" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -118,8 +122,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/sin_determinar"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:textColor="@color/textLight90_Night"
+                    android:textColorHint="@color/textLight90_Night"
                     android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
@@ -138,7 +142,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/mapa" />
+                    android:src="@drawable/menu_cardheader_mapa" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -154,8 +158,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/sin_determinar"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:textColor="@color/textLight90_Night"
+                    android:textColorHint="@color/textLight90_Night"
                     android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
@@ -174,7 +178,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/coche" />
+                    android:src="@drawable/menu_cardheader_coche" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -190,8 +194,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/sin_determinar"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:textColor="@color/textLight90_Night"
+                    android:textColorHint="@color/textLight90_Night"
                     android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
@@ -227,11 +231,14 @@
 
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
 
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
                 app:layout_constraintEnd_toEndOf="parent"
+
+                android:outlineSpotShadowColor="@color/black"
+
 
                 app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toEndOf="@+id/itemLocationSave"
@@ -249,7 +256,7 @@
                         android:layout_marginStart="@dimen/_5sdp"
 
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:src="@drawable/man"
+                        android:src="@drawable/menu_cardheader_man"
 
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -262,15 +269,17 @@
                         android:fontFamily="@font/montserrat_medium"
                         android:gravity="center"
                         android:text="@string/MENU_PROFILE"
-                        android:textColor="@color/textWhite75"
+                        android:textColor="@color/textLight75_Night"
                         android:textSize="@dimen/_10ssp"
 
-                        android:textStyle="bold|italic"
+                        android:textStyle="bold"
+
                         app:layout_constraintBottom_toBottomOf="@+id/imageItemProfile"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageItemProfile"
+                        app:layout_constraintTop_toTopOf="@+id/imageItemProfile"
 
-                        app:layout_constraintTop_toTopOf="@+id/imageItemProfile" />
+                        app:layout_constraintVertical_bias="0"/>
 
                     <TextView
                         android:id="@+id/marcaItemProfile"
@@ -278,17 +287,47 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/MENU_PROFILE_MARCA"
-                        android:textColor="@color/textWhite75"
+                        android:textColor="@color/textLight75_Night"
                         android:textSize="@dimen/_8sdp"
 
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.1"
+                        app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintStart_toStartOf="@+id/imageItemProfile"
 
                         app:layout_constraintTop_toBottomOf="@+id/imageItemProfile" />
 
-                    <TextView
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/itemBluetooth"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        app:cardElevation="@dimen/_10sdp"
+
+                        app:strokeColor="@color/textWhite10"
+                        app:strokeWidth="@dimen/_1sdp"
+
+                        app:cardCornerRadius="@dimen/_15sdp"
+                        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_gravity="center"
+                            android:src="@drawable/menu_bluetooth"
+
+                            android:layout_marginVertical="@dimen/_7sdp"
+                            android:layout_marginHorizontal="@dimen/_7sdp"/>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!--<TextView
                         android:id="@+id/modelItemProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -300,7 +339,7 @@
                         app:layout_constraintBottom_toBottomOf="@+id/marcaItemProfile"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/marcaItemProfile"
-                        app:layout_constraintTop_toTopOf="@+id/marcaItemProfile" />
+                        app:layout_constraintTop_toTopOf="@+id/marcaItemProfile" />-->
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -316,7 +355,7 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
 
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_5sdp"
                 app:layout_constraintEnd_toStartOf="@+id/itemUserData"
@@ -337,7 +376,7 @@
 
                         android:layout_marginStart="@dimen/_8sdp"
 
-                        android:src="@drawable/item_1"
+                        android:src="@drawable/menu_location_guardar"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
 
@@ -352,7 +391,7 @@
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/MENU_LOCATION_SAVE"
-                        android:textColor="@color/textWhite75"
+                        android:textColor="@color/textLight75_Night"
 
                         android:textSize="@dimen/_7ssp"
                         android:textStyle="bold"
@@ -384,7 +423,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_38sdp"
 
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_5sdp"
 
@@ -403,7 +442,7 @@
 
                         android:layout_marginStart="@dimen/_8sdp"
 
-                        android:src="@drawable/item_2"
+                        android:src="@drawable/menu_location_acceder"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
 
@@ -418,7 +457,7 @@
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/MENU_LOCATION_LOAD"
-                        android:textColor="@color/textWhite75"
+                        android:textColor="@color/textLight75_Night"
 
                         android:textSize="@dimen/_7ssp"
                         android:textStyle="bold"
@@ -463,7 +502,7 @@
                 android:layout_marginEnd="@dimen/_16sdp"
 
                 android:layout_marginBottom="@dimen/_16sdp"
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
                 app:cardCornerRadius="@dimen/_15sdp"
 
                 app:cardElevation="@dimen/_5sdp"
@@ -482,7 +521,7 @@
 
                         android:layout_marginStart="@dimen/_8sdp"
 
-                        android:src="@drawable/rewards"
+                        android:src="@drawable/menu_rewards"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
 
@@ -496,7 +535,7 @@
                         android:layout_marginStart="@dimen/_8sdp"
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/MENU_REWARDS"
-                        android:textColor="@color/textWhite75"
+                        android:textColor="@color/textLight75_Night"
                         android:textSize="@dimen/_10ssp"
 
                         android:textStyle="bold"
@@ -510,9 +549,13 @@
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginEnd="@dimen/_5sdp"
-                        app:cardBackgroundColor="@color/secondary_Card"
+                        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
+
+                        app:strokeColor="@color/textWhite10"
+                        app:strokeWidth="@dimen/_1sdp"
 
                         app:cardCornerRadius="@dimen/_15sdp"
+                        app:cardElevation="@dimen/_8sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
 
@@ -525,7 +568,7 @@
 
                             android:layout_marginHorizontal="@dimen/_7sdp"
                             android:layout_marginVertical="@dimen/_7sdp"
-                            android:src="@drawable/rising" />
+                            android:src="@drawable/menu_rewards_rising" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -540,7 +583,7 @@
 
                 android:layout_marginTop="@dimen/_8sdp"
 
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
 
@@ -561,7 +604,7 @@
                         android:layout_height="@dimen/_30sdp"
 
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:src="@drawable/card_1"
+                        android:src="@drawable/menu_pay"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
 
@@ -573,7 +616,7 @@
 
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/MENU_PAY_BLUE_ZONE"
-                        android:textColor="@color/textWhite75"
+                        android:textColor="@color/textLight75_Night"
                         android:textSize="@dimen/_8ssp"
                         android:textStyle="bold"
 
@@ -590,7 +633,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_50sdp"
 
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
 
@@ -609,7 +652,7 @@
                         android:layout_height="@dimen/_35sdp"
 
                         android:layout_marginStart="@dimen/_8sdp"
-                        android:src="@drawable/swap_1"
+                        android:src="@drawable/menu_swap"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
 
@@ -621,7 +664,7 @@
 
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/MENU_SWAP_PARKING"
-                        android:textColor="@color/textWhite75"
+                        android:textColor="@color/textLight75_Night"
                         android:textSize="@dimen/_8ssp"
                         android:textStyle="bold"
 
@@ -638,7 +681,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_50sdp"
 
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
 
@@ -656,7 +699,7 @@
                         android:layout_height="@dimen/_30sdp"
 
                         android:layout_marginStart="@dimen/_8sdp"
-                        android:src="@drawable/cliente"
+                        android:src="@drawable/menu_contact"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
 
@@ -668,7 +711,7 @@
 
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/MENU_CONTACT"
-                        android:textColor="@color/textWhite75"
+                        android:textColor="@color/textLight75_Night"
                         android:textSize="@dimen/_8ssp"
                         android:textStyle="bold"
 
@@ -682,7 +725,7 @@
                         android:layout_marginStart="@dimen/_8sdp"
 
                         android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="#80FFFFFF"
+                        android:background="@color/lightDark_NightWhite50"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
 
@@ -695,7 +738,7 @@
 
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/MENU_MESSAGES"
-                        android:textColor="@color/textWhite75"
+                        android:textColor="@color/textLight75_Night"
                         android:textSize="@dimen/_8ssp"
                         android:textStyle="bold"
 
@@ -714,7 +757,7 @@
 
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginBottom="@dimen/_16sdp"
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
 
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
@@ -738,7 +781,7 @@
                         android:layout_marginStart="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_8sdp"
 
-                        android:src="@drawable/item_3_1"
+                        android:src="@drawable/menu_location_parking"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
 
@@ -753,7 +796,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/montserrat_medium"
                         android:text="@string/MENU_PARKINGS"
-                        android:textColor="@color/textWhite75"
+                        android:textColor="@color/textLight75_Night"
                         android:textSize="@dimen/_10ssp"
 
                         android:textStyle="bold"
@@ -786,10 +829,13 @@
                         android:layout_height="@dimen/_45sdp"
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
-                        app:cardBackgroundColor="@color/secondary_Card"
+                        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
+
+                        app:strokeColor="@color/textWhite10"
+                        app:strokeWidth="@dimen/_1sdp"
 
                         app:cardCornerRadius="@dimen/_14sdp"
-                        app:cardElevation="@dimen/_5sdp"
+                        app:cardElevation="@dimen/_8sdp"
                         app:layout_constraintBottom_toTopOf="@+id/itemGasolinera"
 
                         app:layout_constraintEnd_toEndOf="parent"
@@ -801,7 +847,7 @@
                             android:layout_marginVertical="@dimen/_7sdp"
 
                             android:layout_marginStart="@dimen/_5sdp"
-                            android:src="@drawable/charger_1" />
+                            android:src="@drawable/menu_location_parking_charger" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -809,9 +855,12 @@
                         android:id="@+id/itemGasolinera"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
-                        app:cardBackgroundColor="@color/secondary_Card"
+                        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
                         app:cardCornerRadius="@dimen/_14sdp"
-                        app:cardElevation="@dimen/_5sdp"
+                        app:cardElevation="@dimen/_8sdp"
+
+                        app:strokeColor="@color/textWhite10"
+                        app:strokeWidth="@dimen/_1sdp"
 
                         app:layout_constraintBottom_toTopOf="@+id/itemCronometro"
                         app:layout_constraintEnd_toEndOf="@id/itemElectrica"
@@ -826,7 +875,7 @@
 
                             android:layout_marginHorizontal="@dimen/_7sdp"
                             android:layout_marginVertical="@dimen/_7sdp"
-                            android:src="@drawable/gas" />
+                            android:src="@drawable/menu_location_parking_gasstation" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -835,10 +884,13 @@
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_marginTop="@dimen/_5sdp"
-                        app:cardBackgroundColor="@color/secondary_Card"
+                        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
                         app:cardCornerRadius="@dimen/_14sdp"
 
-                        app:cardElevation="@dimen/_5sdp"
+                        app:strokeColor="@color/textWhite10"
+                        app:strokeWidth="@dimen/_1sdp"
+
+                        app:cardElevation="@dimen/_8sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/itemElectrica"
                         app:layout_constraintStart_toStartOf="@id/itemElectrica"
@@ -851,7 +903,61 @@
                             android:layout_marginHorizontal="@dimen/_7sdp"
 
                             android:layout_marginVertical="@dimen/_7sdp"
-                            android:src="@drawable/chronometer" />
+                            android:src="@drawable/menu_location_parking_chronometer" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+
+                        app:cardCornerRadius="@dimen/_14sdp"
+                        app:cardElevation="@dimen/_5sdp"
+
+                        app:strokeColor="@color/textWhite10"
+                        app:strokeWidth="@dimen/_1sdp"
+
+                        app:layout_constraintTop_toTopOf="@+id/itemCronometro"
+                        app:layout_constraintBottom_toBottomOf="@+id/itemCronometro"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/itemCronometro"
+
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cardLightNight"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/secondary_Card_Darker_LightMode">
+
+                            <ImageView
+                                android:visibility="invisible"
+                                android:id="@+id/imageLightMode"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+
+                                android:src="@drawable/menu_light_mode_1" />
+
+                            <ImageView
+                                android:visibility="invisible"
+                                android:id="@+id/imageNightMode"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
+
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+
+                                android:src="@drawable/menu_night_mode" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -877,7 +983,7 @@
             android:layout_height="@dimen/_5sdp"
             android:layout_marginStart="@dimen/_1sdp"
 
-            android:src="@drawable/copyright"
+            android:src="@drawable/menu_bottom_copyright"
             app:layout_constraintBottom_toBottomOf="@id/textAppName"
             app:layout_constraintStart_toEndOf="@+id/textAppName"
             app:layout_constraintTop_toTopOf="@+id/textAppName"
@@ -891,14 +997,16 @@
             android:layout_marginBottom="@dimen/_2sdp"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/APP_NAME_BOTTOM"
-            android:textColor="@color/lightDark_to_NightWhite_1"
+            android:textColor="@color/white"
 
             android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.49"
 
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/_5sdp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

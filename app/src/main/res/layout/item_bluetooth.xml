@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:cardBackgroundColor="@color/cardNightMode_Bluetooth"
+        app:cardCornerRadius="@dimen/_15sdp"
+        app:cardElevation="@dimen/_4sdp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="?android:attr/selectableItemBackground">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardImageBluetooth"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                app:cardBackgroundColor="@color/cardNightMode_Bluetooth"
+
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:cardElevation="@dimen/_4sdp"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp">
+
+                <ImageView
+                    android:id="@+id/imageBluetoothDeviceLocal"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center"
+
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:src="@drawable/menu_bluetooth" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/bluetoothDeviceLocal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/cardNightMode_BluetoothText"
+                android:text="Dispositivo número uno"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardImageBluetooth"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintHorizontal_bias="0"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

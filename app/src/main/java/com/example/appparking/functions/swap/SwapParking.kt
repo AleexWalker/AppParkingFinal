@@ -33,7 +33,7 @@ class SwapParking : AppCompatActivity() {
             if (i < 5) {
                 itemMensajes.add(
                     SwapCard(
-                        R.drawable.messages_1,
+                        R.drawable.menu_swap_messages,
                         "Alex Maer",
                         "Hola Mundo",
                         "10:40 PM",
@@ -46,7 +46,7 @@ class SwapParking : AppCompatActivity() {
             } else {
                 itemMensajes.add(
                     SwapCard(
-                        R.drawable.messages_1,
+                        R.drawable.menu_swap_messages,
                         "Alex Ursa",
                         "Hola Mundo",
                         "10:40 PM",

@@ -39,7 +39,7 @@
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp"
 
-                app:srcCompat="@drawable/messages_1" />
+                app:srcCompat="@drawable/menu_swap_messages" />
 
         </com.google.android.material.card.MaterialCardView>
 

@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/_8sdp"
-            android:src="@drawable/item_1"
+            android:src="@drawable/menu_location_guardar"
             android:tint="@color/white"/>
 
     </com.google.android.material.card.MaterialCardView>
@@ -75,7 +75,7 @@
                 android:id="@+id/imageLocation"
                 android:layout_width="@dimen/_10sdp"
                 android:layout_height="@dimen/_10sdp"
-                android:src="@drawable/item_1"
+                android:src="@drawable/menu_location_guardar"
                 android:tint="@color/secondary_text"
                 app:layout_constraintStart_toStartOf="@+id/textTitle"
                 app:layout_constraintTop_toBottomOf="@+id/textTitle" />

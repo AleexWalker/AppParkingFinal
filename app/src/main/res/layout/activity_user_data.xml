@@ -95,7 +95,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/man" />
+                    android:src="@drawable/menu_cardheader_man" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -131,7 +131,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/mapa" />
+                    android:src="@drawable/menu_cardheader_mapa" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -168,7 +168,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/coche" />
+                    android:src="@drawable/menu_cardheader_coche" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -255,7 +255,7 @@
                             android:layout_height="@dimen/_35sdp"
                             android:layout_gravity="center"
 
-                            android:src="@drawable/man" />
+                            android:src="@drawable/menu_cardheader_man" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -336,7 +336,7 @@
                             android:layout_height="@dimen/_30sdp"
                             android:layout_gravity="center"
 
-                            android:src="@drawable/mapa" />
+                            android:src="@drawable/menu_cardheader_mapa" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -377,7 +377,7 @@
                             android:layout_height="@dimen/_35sdp"
                             android:layout_gravity="center"
 
-                            android:src="@drawable/coche" />
+                            android:src="@drawable/menu_cardheader_coche" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -420,7 +420,7 @@
                     android:layout_width="@dimen/_15sdp"
                     android:layout_height="@dimen/_15sdp"
                     android:layout_gravity="center"
-                    android:src="@drawable/arrow_down" />
+                    android:src="@drawable/menu_data_arrow_down" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -487,7 +487,7 @@
             android:id="@+id/imageApp"
             android:layout_width="@dimen/_5sdp"
             android:layout_height="@dimen/_5sdp"
-            android:src="@drawable/copyright"
+            android:src="@drawable/menu_bottom_copyright"
 
             app:layout_constraintTop_toTopOf="@+id/textAppName"
             app:layout_constraintBottom_toBottomOf="@id/textAppName"

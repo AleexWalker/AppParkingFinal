@@ -30,7 +30,7 @@
                 android:id="@+id/imagenMapsType"
                 android:layout_width="@dimen/_17sdp"
                 android:layout_height="@dimen/_17sdp"
-                android:src="@drawable/satelite"
+                android:src="@drawable/menu_location_satelite"
 
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -1,55 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightWhite_to_NightDarker"
-    tools:context=".functions.pay.Pay">
+    tools:context=".bluetooth.Bluetooth">
 
     <View
         android:id="@+id/viewHeaderBackground"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_125sdp"
         android:background="@color/primary"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_16sdp"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
+
+        android:text="@string/APP_NAME_BOTTOM"
+        android:textColor="@color/textWhite90"
         android:textSize="@dimen/_20ssp"
         android:textStyle="bold"
+        android:fontFamily="@font/montserrat_light"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/boton_settings"
         android:layout_width="@dimen/_26sdp"
         android:layout_height="@dimen/_26sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
-        android:src="@drawable/ic_search"
+
+        android:src="@drawable/menu_settings"
+        android:tint="@color/white"
+
         app:layout_constraintBottom_toBottomOf="@+id/textTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textTitle"
-        android:tint="@color/white"/>
+
+        android:layout_marginEnd="@dimen/_16sdp"
+        app:tint="@color/textWhite90"/>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:strokeColor="@color/textWhite10"
+        app:strokeColor="@color/secondary_Card_Darker_LightMode"
         app:strokeWidth="@dimen/_1sdp"
 
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        app:cardBackgroundColor="@color/cardNightMode_Primary"
+        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
         app:cardCornerRadius="@dimen/_20sdp"
         app:cardElevation="@dimen/_7sdp"
 
@@ -59,18 +66,18 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_14sdp">
+            android:padding="@dimen/_15sdp">
 
             <TextView
                 android:id="@+id/textViews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/CARD_HEADER_DATA"
-                android:textColor="@color/white"
+                android:textColor="@color/textLight90_Night"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -79,7 +86,7 @@
                 android:textColor="@color/primary"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/layoutClients"
@@ -95,7 +102,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/menu_cardheader_man"/>
+                    android:src="@drawable/menu_cardheader_man" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -103,17 +110,17 @@
                     android:layout_marginTop="@dimen/_4sdp"
                     android:text="@string/CARD_HEADER_CLIENT"
                     android:textColor="@color/secondary_text"
-                    android:textSize="@dimen/_10ssp"/>
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
                     android:id="@+id/textNombre"
-                    android:hint="@string/sin_determinar"
-                    android:textColorHint="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp"
-                    android:textAlignment="center"/>
+                    android:hint="@string/sin_determinar"
+                    android:textAlignment="center"
+                    android:textColor="@color/textLight90_Night"
+                    android:textColorHint="@color/textLight90_Night"
+                    android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
 
@@ -131,7 +138,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/menu_cardheader_mapa"/>
+                    android:src="@drawable/menu_cardheader_mapa" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -139,17 +146,17 @@
                     android:layout_marginTop="@dimen/_4sdp"
                     android:text="@string/CARD_HEADER_CITY"
                     android:textColor="@color/secondary_text"
-                    android:textSize="@dimen/_10ssp"/>
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
                     android:id="@+id/textCiudad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="@string/sin_determinar"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:textColor="@color/textLight90_Night"
+                    android:textColorHint="@color/textLight90_Night"
+                    android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
 
@@ -167,7 +174,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:src="@drawable/menu_cardheader_coche"/>
+                    android:src="@drawable/menu_cardheader_coche" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -175,17 +182,17 @@
                     android:layout_marginTop="@dimen/_4sdp"
                     android:text="@string/CARD_HEADER_MODEL"
                     android:textColor="@color/secondary_text"
-                    android:textSize="@dimen/_10ssp"/>
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
                     android:id="@+id/textMarca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
                     android:hint="@string/sin_determinar"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp"/>
+                    android:textAlignment="center"
+                    android:textColor="@color/textLight90_Night"
+                    android:textColorHint="@color/textLight90_Night"
+                    android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
 
@@ -193,94 +200,38 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <RelativeLayout
-        android:id="@+id/layoutRecycler"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textBluetooth"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:gravity="center"
-        android:orientation="horizontal"
 
         app:layout_constraintTop_toBottomOf="@+id/cardHeader"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/montserrat_medium"
+        android:textStyle="bold"
+        android:text="Dispositivos Bluetooth"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
 
-        app:layout_constraintVertical_bias="0.100000024">
+        android:layout_marginStart="@dimen/_16sdp"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginTop="@dimen/_8sdp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerCardsPay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_centerInParent="true"
-            android:animationCache="true"
-            android:orientation="horizontal"
-
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-
-            tools:itemCount="4"
-            tools:listitem="@layout/item_card_pay" />
-
-    </RelativeLayout>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerBluetooth"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="0dp"
 
-        app:layout_constraintTop_toBottomOf="@+id/layoutRecycler"
+        app:layout_constraintTop_toBottomOf="@+id/textBluetooth"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/first"
-            android:layout_width="@dimen/_5sdp"
-            android:layout_height="@dimen/_5sdp"
-            android:layout_marginVertical="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        tools:listitem="@layout/item_bluetooth"
+        tools:itemCount="3"
 
-            app:strokeColor="@color/white"
-            app:strokeWidth="@dimen/_1sdp"
-
-            android:translationX="-15dp"
-            android:layout_gravity="center" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/second"
-            android:layout_width="@dimen/_5sdp"
-            android:layout_height="@dimen/_5sdp"
-            android:layout_marginVertical="@dimen/_2sdp"
-
-            app:strokeColor="@color/white"
-            app:strokeWidth="@dimen/_1sdp"
-
-            android:translationX="-5dp"
-            android:layout_gravity="center" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/third"
-            android:layout_width="@dimen/_5sdp"
-            android:layout_height="@dimen/_5sdp"
-            android:layout_marginVertical="@dimen/_2sdp"
-
-            app:strokeColor="@color/white"
-            app:strokeWidth="@dimen/_1sdp"
-
-            android:translationX="5dp"
-            android:layout_gravity="center" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/fourth"
-            android:layout_width="@dimen/_5sdp"
-            android:layout_height="@dimen/_5sdp"
-            android:layout_marginVertical="@dimen/_2sdp"
-
-            app:strokeColor="@color/white"
-            app:strokeWidth="@dimen/_1sdp"
-
-            android:translationX="15dp"
-            android:layout_gravity="center"/>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        android:background="?android:attr/selectableItemBackground"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

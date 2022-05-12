@@ -20,7 +20,7 @@
             <ImageView
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
-                android:src="@drawable/iconoapp2"
+                android:src="@drawable/icon_app_1"
 
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -15,7 +15,7 @@
 
     <!-- NIGHT COLORS -->
     <color name="lightWhite_to_NightDark">#2A3665</color>
-    <color name="lightWhite_to_NightDarker">#CC232D55</color>
+    <color name="lightWhite_to_NightDarker">#232D55</color>
     <color name="lightWhite_to_NightPrimaryText">#565B65</color>
     <color name="lightDark_to_NightWhite">#FFFFFF</color>
     <color name="lightDark_to_NightWhite_1">#FFFFFF</color>
@@ -23,9 +23,19 @@
     <!-- CARD COLORS -->
     <color name="cardNightMode">#232D55</color>
     <color name="cardNightMode_Primary">#181F39</color>
+    <color name="cardNightMode_Bluetooth">#181F39</color>
+    <color name="cardNightMode_BluetoothText">#FFFFFF</color>
+    <color name="cardNightmode_Menu">#667AFF</color>
+
+    <color name="secondary_Card_Darker_LightMode">#141A30</color>
 
     <!-- TEXT COLORS -->
     <color name="textDarker">#797F95</color>
     <color name="textTitle">#FFFFFF</color>
+
+    <color name="textLight75_Night">#BFFFFFFF</color>
+    <color name="textLight90_Night">#E6FFFFFF</color>
+    <color name="lightDark_NightWhite50">#80FFFFFF</color>
+
 
 </resources>

@@ -3,12 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/custom_switch.xml" value="0.246" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/ic_cardano_1.xml" value="0.311" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/ic_clients_background.xml" value="0.311" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/ic_copyright__1_.xml" value="0.311" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/ic_item_cardano.xml" value="0.311" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/ic_search.xml" value="0.311" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/pink_out_line.xml" value="0.261" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/drawable/switch_widget.xml" value="0.1" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_acceder_localizacion.xml" value="0.30117753623188404" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_bluetooth.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_chronometer.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_google_maps.xml" value="0.375" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_location_acceder.xml" value="0.33" />
@@ -27,6 +31,7 @@
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_user_menu.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/activity_user_menu_exp.xml" value="0.5" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_dialog_chrono.xml" value="0.32587719298245615" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_toast_bluetooth.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_toast_maps_add_1.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_toast_swap_1.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/custom_toast_user_1.xml" value="0.33" />
@@ -42,6 +47,7 @@
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_ajustes_1.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_ajustes_2.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_ajustes_3.xml" value="0.32587719298245615" />
+        <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_bluetooth.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_card_pay.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_google_maps.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/AndroidStudioProjects/AppParking-master/app/src/main/res/layout/item_google_maps_acceder_localizacion.xml" value="0.30117753623188404" />

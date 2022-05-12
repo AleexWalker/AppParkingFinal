@@ -33,7 +33,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
 
                 android:layout_marginStart="@dimen/_11sdp"
-                android:src="@drawable/cardano_2"/>
+                android:src="@drawable/menu_pay_cardano"/>
 
             <TextView
                 android:id="@+id/nameCoin"

@@ -73,8 +73,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
     implementation 'androidx.databinding:baseLibrary:3.2.0-alpha11'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.1.1'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.1.2'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
 
     // Lifecycle
     def lifecycle_ver = "2.2.0-alpha01"
