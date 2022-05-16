@@ -2,6 +2,8 @@ package com.example.appparking.ui
 
 import android.annotation.SuppressLint
 import android.app.*
+import android.bluetooth.BluetoothManager
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
@@ -20,9 +22,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.getSystemService
 
 import com.example.appparking.R
 import com.example.appparking.bluetooth.Bluetooth
+import com.example.appparking.bluetooth.Bluetooth2
+import com.example.appparking.bluetooth.BluetoothBroadcastReceiver
 import com.example.appparking.databinding.ActivityUserMenuBinding
 import com.example.appparking.functions.swap.SwapParking
 import com.example.appparking.functions.pay.Pay
@@ -59,11 +64,14 @@ class UserMenu : AppCompatActivity() {
     private lateinit var builder: Notification.Builder
     private val channelId = "1234"
     private val description = "Test notification"
-
     private var hashUserData: HashMap<String, Any> = hashMapOf()
+
     private var latitud: Double = 0.0
     private var longitud: Double = 0.0
 
+    private val broadcastReceiver = BluetoothBroadcastReceiver()
+
+    @SuppressLint("MissingPermission")
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -196,6 +204,14 @@ class UserMenu : AppCompatActivity() {
             itemBluetooth.setOnClickListener {
                 startActivity(Intent(this@UserMenu, Bluetooth::class.java))
                 transition()
+            }
+        }
+
+        val manager = requireNotNull(getSystemService<BluetoothManager>())
+
+        with(manager.adapter) {
+            bondedDevices.forEach {
+                Log.d("Main", "Registered ${it.name}")
             }
         }
     }
