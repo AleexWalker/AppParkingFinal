@@ -21,10 +21,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_16sdp"
-        android:text="@string/app_name"
+        android:fontFamily="@font/montserrat_light"
+
+        android:text="@string/APP_NAME_BOTTOM"
         android:textColor="@color/white"
         android:textSize="@dimen/_20ssp"
         android:textStyle="bold"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -33,7 +36,7 @@
         android:layout_width="@dimen/_26sdp"
         android:layout_height="@dimen/_26sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/menu_settings"
         app:layout_constraintBottom_toBottomOf="@+id/textTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textTitle"
@@ -44,12 +47,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:strokeColor="@color/textWhite10"
+        app:strokeColor="@color/secondary_Card_Darker_LightMode"
         app:strokeWidth="@dimen/_1sdp"
 
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        app:cardBackgroundColor="@color/cardNightMode_Primary"
+        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
         app:cardCornerRadius="@dimen/_20sdp"
         app:cardElevation="@dimen/_7sdp"
 
@@ -59,14 +62,15 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_14sdp">
+            android:padding="@dimen/_15sdp">
 
             <TextView
                 android:id="@+id/textViews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/CARD_HEADER_DATA"
-                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_light"
+                android:textColor="@color/textLight90_Night"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -108,10 +112,11 @@
                 <TextView
                     android:id="@+id/textNombre"
                     android:hint="@string/sin_determinar"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/textLight90_Night"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textColor="@color/textLight90_Night"
                     android:textSize="@dimen/_8ssp"
                     android:textAlignment="center"/>
 
@@ -146,8 +151,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="@string/sin_determinar"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
+                    android:textColorHint="@color/textLight90_Night"
+                    android:fontFamily="@font/montserrat_medium"
+
+                    android:textColor="@color/textLight90_Night"
                     android:textSize="@dimen/_8ssp"
                     android:textAlignment="center"/>
 
@@ -182,9 +189,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
+                    android:fontFamily="@font/montserrat_medium"
+
                     android:hint="@string/sin_determinar"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
+                    android:textColorHint="@color/textLight90_Night"
+                    android:textColor="@color/textLight90_Night"
                     android:textSize="@dimen/_8ssp"/>
 
             </LinearLayout>

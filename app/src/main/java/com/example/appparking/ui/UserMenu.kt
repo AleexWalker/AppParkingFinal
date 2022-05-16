@@ -2,17 +2,16 @@ package com.example.appparking.ui
 
 import android.annotation.SuppressLint
 import android.app.*
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
+import android.content.*
 import android.content.res.Configuration
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -21,40 +20,35 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.getSystemService
-
 import com.example.appparking.R
 import com.example.appparking.bluetooth.Bluetooth
-import com.example.appparking.bluetooth.Bluetooth2
-import com.example.appparking.bluetooth.BluetoothBroadcastReceiver
 import com.example.appparking.databinding.ActivityUserMenuBinding
-import com.example.appparking.functions.swap.SwapParking
+import com.example.appparking.functions.getCurrentLocation
 import com.example.appparking.functions.pay.Pay
 import com.example.appparking.functions.rewards.Rewards
+import com.example.appparking.functions.swap.SwapParking
 import com.example.appparking.location.LocationAcceder
 import com.example.appparking.location.LocationGuardar
 import com.example.appparking.location.LocationParking
 import com.example.appparking.location.places.PlacesElectricChargers
 import com.example.appparking.location.places.PlacesGasStation
-
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.custom_dialog_chrono.*
-
 import kotlinx.android.synthetic.main.custom_dialog_chrono.view.*
 import kotlinx.android.synthetic.main.custom_toast_maps_add_1.*
-
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.HashMap
 
 class UserMenu : AppCompatActivity() {
 
     private lateinit var binding: ActivityUserMenuBinding
     private lateinit var baseDatos: FirebaseFirestore
+    private lateinit var dispositivo: String
     private lateinit var nombre: String
     private lateinit var ciudad: String
     private lateinit var marca: String
@@ -64,12 +58,9 @@ class UserMenu : AppCompatActivity() {
     private lateinit var builder: Notification.Builder
     private val channelId = "1234"
     private val description = "Test notification"
-    private var hashUserData: HashMap<String, Any> = hashMapOf()
 
     private var latitud: Double = 0.0
     private var longitud: Double = 0.0
-
-    private val broadcastReceiver = BluetoothBroadcastReceiver()
 
     @SuppressLint("MissingPermission")
     @RequiresApi(Build.VERSION_CODES.M)
@@ -78,12 +69,14 @@ class UserMenu : AppCompatActivity() {
         binding = ActivityUserMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         /**
          * Recogemos todos los datos desde Firebase posteriormente enviados desde la clase de GoogleMaps
          * @param latitud: Parámetro de tipo Double que guarda la Latiud
          * @param longitud: Parámetro de tipo Double que guarda la Longitud
          */
         loadUserData()
+        onBluetoothDisconnect()
 
         with(binding) {
             /**
@@ -216,10 +209,6 @@ class UserMenu : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
     override fun onResume() {
         super.onResume()
         when (this.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
@@ -249,6 +238,57 @@ class UserMenu : AppCompatActivity() {
         }
     }
 
+    private fun onBluetoothDisconnect() {
+        val firstFilter = IntentFilter(BluetoothDevice.ACTION_ACL_DISCONNECTED)
+        val secondFilter = IntentFilter(BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED)
+
+        val mReceiver = object : BroadcastReceiver() {
+            @SuppressLint("LogNotTimber", "MissingPermission")
+            @Override
+            override fun onReceive(p0: Context?, p1: Intent?) {
+                val action = p1!!.action
+                val device: BluetoothDevice = p1.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)!!
+
+                if (BluetoothDevice.ACTION_FOUND == action) {
+                    Log.e("BluetoothReceiver", "BluetoothDevice ${device.name} found.")
+                } else if (BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED == action) {
+                    Log.e("BluetoothReceiver", "BluetoothDevice ${device.name} disconnecting.")
+                    if (device.name == dispositivo){
+                        Log.e("Dispositivo", dispositivo)
+                        getCurrentLocation { location ->
+                            val hashDispositivo = hashMapOf<String, Any>()
+                            hashDispositivo["Latitud"] = location!!.latitude.toString()
+                            hashDispositivo["Longitud"] = location.longitude.toString()
+                            baseDatos
+                                .collection("Usuarios")
+                                .document("Data")
+                                .update(hashDispositivo)
+                                .addOnSuccessListener { Log.w(ContentValues.TAG, "¡Successfully written!") }
+                                .addOnFailureListener { Log.w(ContentValues.TAG, "Failed to be written!") }
+                        }
+                    }
+                } else if (BluetoothDevice.ACTION_ACL_DISCONNECTED == action) {
+                    Log.e("BluetoothReceiver", "BluetoothDevice ${device.name} disconnected.")
+                    if (device.name == dispositivo){
+                        getCurrentLocation { location ->
+                            val hashDispositivo = hashMapOf<String, Any>()
+                            hashDispositivo["Latitud"] = location!!.latitude.toString()
+                            hashDispositivo["Longitud"] = location.longitude.toString()
+                            baseDatos
+                                .collection("Usuarios")
+                                .document("Data")
+                                .update(hashDispositivo)
+                                .addOnSuccessListener { Log.w(ContentValues.TAG, "¡Successfully written!") }
+                                .addOnFailureListener { Log.w(ContentValues.TAG, "Failed to be written!") }
+                        }
+                    }
+                }
+            }
+        }
+        this.registerReceiver(mReceiver, firstFilter)
+        this.registerReceiver(mReceiver, secondFilter)
+    }
+
     private fun transition() {
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out)
     }
@@ -274,7 +314,8 @@ class UserMenu : AppCompatActivity() {
             }
 
             cardAlertSet.setOnClickListener {
-                val countDownTimer = object : CountDownTimer(
+                val countDownTimer = @SuppressLint("NewApi")
+                object : CountDownTimer(
                     getTimeNotification(
                         getCurrentTime()
                             .substring(0, 2),
@@ -401,6 +442,7 @@ class UserMenu : AppCompatActivity() {
                     nombre = result.getString("Nombre").toString()
                     ciudad = result.getString("Ciudad").toString()
                     marca = result.getString("Marca").toString()
+                    dispositivo = result.getString("Dispositivo").toString()
 
                     with(binding){
                         textNombre.text = nombre
@@ -435,3 +477,26 @@ class UserMenu : AppCompatActivity() {
             view = layoutToast
         }.show()    }
 }
+
+/**val broadcastReceiver = object : BroadcastReceiver() {
+@SuppressLint("MissingPermission", "LogNotTimber")
+@Override
+override fun onReceive(p0: Context?, p1: Intent?) {
+Log.e("BluetoothReceiver", "${p1!!.action}")
+
+when( p1.action ) {
+BluetoothDevice.ACTION_ACL_CONNECTED -> {
+val device : BluetoothDevice = p1.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)!!
+Log.e("BluetoothReceiver", "BluetoothDevice ${device.name} connected")
+}
+BluetoothDevice.ACTION_ACL_DISCONNECTED -> {
+val device : BluetoothDevice = p1.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)!!
+Log.e("BluetoothReceiver", "BluetoothDevice ${device.name} disconnected")
+}
+}
+}
+}
+
+LocalBroadcastManager
+.getInstance(this)
+.registerReceiver(broadcastReceiver, IntentFilter(BluetoothDevice.ACTION_ACL_DISCONNECTED))*/

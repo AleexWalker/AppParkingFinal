@@ -21,6 +21,7 @@
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginLeft="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_16sdp"
+        android:fontFamily="@font/montserrat_light"
         android:text="Ajustes"
         android:textColor="@color/white"
         android:textSize="@dimen/_20ssp"
@@ -34,7 +35,7 @@
         android:layout_height="@dimen/_26sdp"
         android:layout_marginEnd="@dimen/_16sdp"
         android:layout_marginRight="@dimen/_16sdp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/menu_settings"
         android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textTitle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,12 +46,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:strokeColor="@color/textWhite10"
+        app:strokeColor="@color/secondary_Card_Darker_LightMode"
         app:strokeWidth="@dimen/_1sdp"
 
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        app:cardBackgroundColor="@color/cardNightMode_Primary"
+        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
         app:cardCornerRadius="@dimen/_20sdp"
 
         app:layout_constraintBottom_toBottomOf="@+id/viewHeaderBackground"
@@ -59,14 +60,15 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_14sdp">
+            android:padding="@dimen/_15sdp">
 
             <TextView
                 android:id="@+id/textViews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Datos:"
-                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_light"
+                android:textColor="@color/textLight90_Night"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -109,10 +111,11 @@
                     android:id="@+id/textoNombreAjustes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
                     android:hint="@string/sin_determinar"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:textColor="@color/textLight90_Night"
+                    android:textColorHint="@color/textLight90_Night"
                     android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
@@ -145,11 +148,13 @@
                     android:id="@+id/textoCiudadAjustes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
+
                     android:hint="@string/sin_determinar"
                     android:textAlignment="center"
 
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:textColor="@color/textLight90_Night"
+                    android:textColorHint="@color/textLight90_Night"
                     android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
@@ -182,11 +187,13 @@
                     android:id="@+id/textoMarcaAjustes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
+
                     android:hint="@string/sin_determinar"
                     android:textAlignment="center"
 
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
+                    android:textColor="@color/textLight90_Night"
+                    android:textColorHint="@color/textLight90_Night"
                     android:textSize="@dimen/_8ssp" />
 
             </LinearLayout>
@@ -221,7 +228,7 @@
                 android:layout_marginTop="@dimen/_8sdp"
 
                 android:layout_marginBottom="@dimen/_11sdp"
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
 
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
@@ -240,8 +247,11 @@
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
 
+                        app:strokeColor="@color/textWhite10"
+                        app:strokeWidth="@dimen/_1sdp"
+
                         android:layout_marginStart="@dimen/_8sdp"
-                        app:cardBackgroundColor="@color/secondary_Card"
+                        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
                         app:cardCornerRadius="@dimen/_14sdp"
 
                         app:cardElevation="@dimen/_5sdp"
@@ -269,9 +279,9 @@
                         android:layout_marginBottom="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_8sdp"
 
-                        android:backgroundTint="@color/textWhite90"
+                        android:backgroundTint="@color/textLight90_Night"
                         android:hint="Name"
-                        android:textColorHint="@color/white"
+                        android:textColorHint="@color/textLight90_Night"
 
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -300,7 +310,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="#141A30"
                 app:cardCornerRadius="@dimen/_15sdp"
 
                 app:cardElevation="@dimen/_5sdp"
@@ -313,16 +323,20 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/secondary_Card_Darker_LightMode">
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/imageDataCity"
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
 
+                        app:strokeColor="@color/textWhite10"
+                        app:strokeWidth="@dimen/_1sdp"
+
                         android:layout_marginStart="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_8sdp"
-                        app:cardBackgroundColor="@color/secondary_Card"
+                        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
 
                         app:cardCornerRadius="@dimen/_11sdp"
                         app:cardElevation="@dimen/_5sdp"
@@ -349,7 +363,8 @@
                         android:layout_marginEnd="@dimen/_16sdp"
                         app:layout_constraintBottom_toBottomOf="@id/imageDataCity"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:backgroundTint="@color/white"
+
+                        android:backgroundTint="@color/textLight90_Night"
 
                         android:scrollbarThumbVertical="@dimen/_4sdp"
 
@@ -361,9 +376,12 @@
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_45sdp"
 
+                        app:strokeColor="@color/textWhite10"
+                        app:strokeWidth="@dimen/_1sdp"
+
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_marginBottom="@dimen/_8sdp"
-                        app:cardBackgroundColor="@color/secondary_Card"
+                        app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
 
                         app:cardCornerRadius="@dimen/_11sdp"
                         app:cardElevation="@dimen/_5sdp"
@@ -388,9 +406,9 @@
 
                         android:layout_marginStart="@dimen/_16sdp"
                         android:layout_marginEnd="@dimen/_16sdp"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/imageDataModel"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="@color/textLight90_Night"
 
                         app:layout_constraintStart_toEndOf="@+id/imageDataModel"
                         app:layout_constraintTop_toTopOf="@id/imageDataModel" />
@@ -404,7 +422,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_20sdp"
 
-                app:cardBackgroundColor="@color/cardNightMode_Primary"
+                app:cardBackgroundColor="@color/secondary_Card_Darker_LightMode"
                 app:cardCornerRadius="@dimen/_20sdp"
 
                 app:cardElevation="@dimen/_5sdp"
@@ -420,7 +438,9 @@
                     android:layout_width="@dimen/_15sdp"
                     android:layout_height="@dimen/_15sdp"
                     android:layout_gravity="center"
-                    android:src="@drawable/menu_data_arrow_down" />
+                    android:src="@drawable/menu_data_arrow_down"
+
+                    app:tint="@color/textLight90_Night"/>
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -501,7 +521,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="APPARCA"
-            android:textColor="@color/lightDark_to_NightWhite_1"
+            android:textColor="@color/white"
             android:fontFamily="@font/montserrat_medium"
             android:textStyle="bold"
 
